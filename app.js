@@ -415,4 +415,23 @@
     });
   })();
 
+  /* ---------- 9. Mobile nav drawer ---------- */
+  (function () {
+    var burger = doc.getElementById('navBurger');
+    var drawer = doc.getElementById('mobileNav');
+    if (!burger || !drawer) return;
+    burger.addEventListener('click', function () {
+      var open = drawer.classList.toggle('is-open');
+      burger.classList.toggle('is-open', open);
+      burger.setAttribute('aria-expanded', String(open));
+    });
+    drawer.addEventListener('click', function (e) {
+      if (e.target.tagName === 'A') {
+        drawer.classList.remove('is-open');
+        burger.classList.remove('is-open');
+        burger.setAttribute('aria-expanded', 'false');
+      }
+    });
+  })();
+
 })();

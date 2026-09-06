@@ -1020,9 +1020,62 @@ html.has-cursor input, html.has-cursor textarea { cursor: text; }
   .tool-preview { box-shadow: 0 0 0 6px var(--sage-veil), 12px 12px 0 0 var(--sage-veil); }
 }
 
+/* ---------- Mobile nav ---------- */
+.hdr__burger {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  gap: 5px;
+  width: 42px;
+  height: 42px;
+  padding: 0 9px;
+  background: none;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  cursor: pointer;
+}
+.hdr__burger span {
+  display: block;
+  height: 2px;
+  width: 100%;
+  background: var(--fg);
+  border-radius: 2px;
+  transition: transform var(--dur) var(--ease-out), opacity var(--dur);
+}
+.hdr__burger.is-open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+.hdr__burger.is-open span:nth-child(2) { opacity: 0; }
+.hdr__burger.is-open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+.mnav {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 90;
+  padding: 6.5rem var(--gutter) var(--s-8);
+  background: rgba(20, 17, 12, 0.97);
+  border-bottom: 1px solid var(--line);
+  backdrop-filter: blur(14px);
+  flex-direction: column;
+  gap: var(--s-4);
+}
+.mnav.is-open { display: flex; }
+.mnav a {
+  font-family: var(--font-mono);
+  font-size: 1.05rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--muted);
+  padding: var(--s-3) 0;
+  border-bottom: 1px solid var(--line-soft);
+}
+.mnav a:last-child { border-bottom: none; color: var(--sage-bright); }
+
 /* ---------- Responsive ---------- */
 @media (max-width: 900px) {
   .hdr__nav { display: none; }
+  .hdr__burger { display: flex; }
   .about { grid-template-columns: 1fr; }
   .svc-row { grid-template-columns: 3rem 1fr auto; }
   .svc-row__desc { display: none; }
@@ -1052,4 +1105,14 @@ html.has-cursor input, html.has-cursor textarea { cursor: text; }
     animation-duration: 0.01ms !important;
     transition-duration: 0.01ms !important;
   }
+}
+/* ---------- Mobile header fit ---------- */
+.hdr__burger { flex-shrink: 0; }
+@media (max-width: 480px) {
+  .hdr__in { gap: 0.75rem; }
+  .hdr__cta { padding: 0.45rem 0.8rem; font-size: 0.62rem; }
+}
+
+@media (max-width: 480px) {
+  .hdr__cta { display: none; }
 }
