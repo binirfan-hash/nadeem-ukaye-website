@@ -1,120 +1,133 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
+  <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Insights — Dr. Nadeem Ukaye | HSE, AI & Safety Leadership</title>
+  <title>Insights — Dr. Nadeem Ukaye | HSE, AI &amp; Safety Leadership</title>
+  <meta name="description" content="Writing on predictive safety, AI-driven governance and building cultures where operational excellence and human wellbeing coexist.">
+  <meta name="theme-color" content="#14110c">
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400..800&family=Instrument+Serif:ital@0;1&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400..800&family=Instrument+Serif:ital@0;1&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap">
   <link rel="stylesheet" href="styles.css">
+  <link rel="icon" href="profile.jpg" type="image/jpeg">
 </head>
 <body>
+  <div class="grain" aria-hidden="true"></div>
+  <div class="progress" aria-hidden="true"><div class="progress__bar" id="pbar"></div></div>
 
-  <!-- Navigation -->
-  <header class="topnav">
-    <div class="container topnav-inner">
-      <a href="index.html" class="logo">Dr. Nadeem<span> Ukaye</span></a>
-      <nav>
-        <a href="index.html">Home</a>
+  <header class="hdr" id="hdr">
+    <div class="wrap hdr__in">
+      <a href="index.html" class="hdr__brand">Dr. Nadeem <em>Ukaye</em></a>
+      <nav class="hdr__nav" aria-label="Main">
         <a href="about.html">About</a>
         <a href="work.html">Work</a>
-        <a href="insights.html" class="active">Insights</a>
+        <a href="insights.html" aria-current="page">Insights</a>
         <a href="contact.html">Contact</a>
       </nav>
-      <a href="contact.html" class="btn btn-primary" style="padding: 8px 20px; font-size: 13px;">Book Consultation</a>
+      <a href="https://cal.com/nadeem-ukaye-z2sjo1" class="hdr__cta" data-magnet>Book a Call</a>
     </div>
   </header>
 
-  <!-- Hero: tight -->
-  <section class="hero" style="padding-top: 24px; padding-bottom: 16px;">
-    <div class="container">
-      <p class="eyebrow">Insights & Perspectives</p>
-      <h1>Thoughts on Safety, AI & the Future of Work.</h1>
-      <p class="lead" style="margin-top: 6px; max-width: none;">
-        Sharing perspectives on predictive safety, AI-driven governance, and building cultures where operational excellence and human wellbeing coexist.
-      </p>
-    </div>
-  </section>
-
-  <div class="container"><div class="divider"></div></div>
-
-  <!-- Articles -->
-  <section class="section" style="padding-top: var(--gap-xl);">
-    <div class="container">
-      <div class="stack" style="gap: 0;">
-
-        <article class="card" style="padding: 20px 24px; border-bottom: 1px solid var(--warm-border); border-radius: 0; display: grid; grid-template-columns: auto 1fr auto; gap: 16px; align-items: start; cursor: pointer; transition: background 0.2s ease;">
-          <span class="pill" style="margin-top: 2px;">Coming Soon</span>
-          <div>
-            <h3 style="font-size: 15px; margin-bottom: 4px;">From Reactive to Predictive: How AI is Reshaping HSE Governance</h3>
-            <p style="margin: 0; color: var(--fg-muted); font-size: 13px; line-height: 1.5;">Exploring how machine learning models can analyse incident patterns, environmental data, and behavioural signals to predict and prevent workplace accidents before they occur.</p>
-          </div>
-          <span style="color: var(--fg-muted); font-size: 12px; white-space: nowrap; margin-top: 2px;">Predictive Safety</span>
-        </article>
-
-        <article class="card" style="padding: 20px 24px; border-bottom: 1px solid var(--warm-border); border-radius: 0; display: grid; grid-template-columns: auto 1fr auto; gap: 16px; align-items: start; cursor: pointer; transition: background 0.2s ease;">
-          <span class="pill" style="margin-top: 2px;">Coming Soon</span>
-          <div>
-            <h3 style="font-size: 15px; margin-bottom: 4px;">The Physician's Lens: Why Medical Training Makes Better Safety Leaders</h3>
-            <p style="margin: 0; color: var(--fg-muted); font-size: 13px; line-height: 1.5;">How emergency response training, analytical diagnosis, and human-centric care translate into industry-leading HSE management and risk decision-making.</p>
-          </div>
-          <span style="color: var(--fg-muted); font-size: 12px; white-space: nowrap; margin-top: 2px;">Leadership</span>
-        </article>
-
-        <article class="card" style="padding: 20px 24px; border-bottom: 1px solid var(--warm-border); border-radius: 0; display: grid; grid-template-columns: auto 1fr auto; gap: 16px; align-items: start; cursor: pointer; transition: background 0.2s ease;">
-          <span class="pill" style="margin-top: 2px;">Coming Soon</span>
-          <div>
-            <h3 style="font-size: 15px; margin-bottom: 4px;">Beyond Compliance: Building a Safety Culture in the AI Era</h3>
-            <p style="margin: 0; color: var(--fg-muted); font-size: 13px; line-height: 1.5;">Why ticking boxes is no longer enough — and how forward-thinking organisations are using intelligent automation to embed safety into every operational decision.</p>
-          </div>
-          <span style="color: var(--fg-muted); font-size: 12px; white-space: nowrap; margin-top: 2px;">Culture</span>
-        </article>
-
-        <article class="card" style="padding: 20px 24px; border-bottom: 1px solid var(--warm-border); border-radius: 0; display: grid; grid-template-columns: auto 1fr auto; gap: 16px; align-items: start; cursor: pointer; transition: background 0.2s ease;">
-          <span class="pill" style="margin-top: 2px;">Coming Soon</span>
-          <div>
-            <h3 style="font-size: 15px; margin-bottom: 4px;">Offshore to Onshore: Lessons from 6 Years in Marine HSE</h3>
-            <p style="margin: 0; color: var(--fg-muted); font-size: 13px; line-height: 1.5;">What managing safety on drilling platforms in Angola teaches you about risk management, confined space protocols, and working under extreme operational pressure.</p>
-          </div>
-          <span style="color: var(--fg-muted); font-size: 12px; white-space: nowrap; margin-top: 2px;">Case Study</span>
-        </article>
-
-        <article class="card" style="padding: 20px 24px; border-radius: 0; display: grid; grid-template-columns: auto 1fr auto; gap: 16px; align-items: start; cursor: pointer; transition: background 0.2s ease;">
-          <span class="pill" style="margin-top: 2px;">Coming Soon</span>
-          <div>
-            <h3 style="font-size: 15px; margin-bottom: 4px;">The Business Case for Predictive Safety: ROI Beyond the Incident Rate</h3>
-            <p style="margin: 0; color: var(--fg-muted); font-size: 13px; line-height: 1.5;">Quantifying the value of prevention — from reduced insurance premiums and regulatory fines to improved workforce morale and retention.</p>
-          </div>
-          <span style="color: var(--fg-muted); font-size: 12px; white-space: nowrap; margin-top: 2px;">Strategy</span>
-        </article>
-
-      </div>
-    </div>
-  </section>
-
-  <!-- CTA -->
-  <section class="section" style="padding-top: 0;">
-    <div class="container">
-      <div class="cta-section">
-        <h2>Stay updated on new insights.</h2>
-        <p class="lead" style="margin: 6px auto var(--gap-lg);">
-          Get notified when new articles on predictive safety, AI governance, and HSE leadership are published.
+  <main>
+    <!-- PAGE HERO -->
+    <section class="phero">
+      <div class="shader-field" id="shaderField" aria-hidden="true"></div>
+      <div class="bloom bloom--top" aria-hidden="true"></div>
+      <div class="wrap phero__in">
+        <p class="hero__eyebrow" data-reveal>Insights &amp; Perspectives</p>
+        <h1 class="phero__title" data-split aria-label="Thoughts on Safety, AI and the Future of Work.">Thoughts on Safety, AI &amp; the Future of Work.</h1>
+        <p class="phero__lede" data-reveal>
+          Perspectives on predictive safety, AI-driven governance, and building cultures where operational excellence and <em>human wellbeing coexist.</em>
         </p>
-        <a href="contact.html" class="btn btn-primary">Subscribe</a>
       </div>
-    </div>
-  </section>
+      <div class="wrap"><div class="phero__rule"></div></div>
+    </section>
 
-  <!-- Footer -->
+    <!-- 01 ARTICLES -->
+    <section class="sec">
+      <div class="wrap">
+        <div class="sec-head" data-reveal>
+          <span class="sec-head__n">01</span>
+          <span class="sec-head__label">Articles</span>
+          <span class="sec-head__rule"></span>
+          <span class="sec-head__label">doseofhse · LinkedIn</span>
+        </div>
+        <div class="svc-list" data-reveal-group>
+          <div class="svc-row" data-reveal>
+            <span class="svc-row__n">A·01</span>
+            <div class="svc-row__main">
+              <h3 class="svc-row__title">From Reactive to Predictive: How AI is Reshaping HSE Governance</h3>
+              <p class="svc-row__desc">Exploring how machine learning models can analyse incident patterns, environmental data and behavioural signals to predict and prevent workplace accidents before they occur.</p>
+            </div>
+            <span class="svc-row__tags">Predictive Safety</span>
+          </div>
+          <div class="svc-row" data-reveal>
+            <span class="svc-row__n">A·02</span>
+            <div class="svc-row__main">
+              <h3 class="svc-row__title">The Physician's Lens: Why Medical Training Makes Better Safety Leaders</h3>
+              <p class="svc-row__desc">How emergency response training, analytical diagnosis and human-centric care translate into industry-leading HSE management and risk decision-making.</p>
+            </div>
+            <span class="svc-row__tags">Leadership</span>
+          </div>
+          <div class="svc-row" data-reveal>
+            <span class="svc-row__n">A·03</span>
+            <div class="svc-row__main">
+              <h3 class="svc-row__title">Beyond Compliance: Building a Safety Culture in the AI Era</h3>
+              <p class="svc-row__desc">Why ticking boxes is no longer enough — and how forward-thinking organisations use intelligent automation to embed safety into every operational decision.</p>
+            </div>
+            <span class="svc-row__tags">Culture</span>
+          </div>
+          <div class="svc-row" data-reveal>
+            <span class="svc-row__n">A·04</span>
+            <div class="svc-row__main">
+              <h3 class="svc-row__title">Offshore to Onshore: Lessons from 6 Years in Marine HSE</h3>
+              <p class="svc-row__desc">What managing safety on drilling platforms in Angola teaches about risk management, confined space protocols and working under extreme operational pressure.</p>
+            </div>
+            <span class="svc-row__tags">Case Study</span>
+          </div>
+          <div class="svc-row" data-reveal>
+            <span class="svc-row__n">A·05</span>
+            <div class="svc-row__main">
+              <h3 class="svc-row__title">The Business Case for Predictive Safety: ROI Beyond the Incident Rate</h3>
+              <p class="svc-row__desc">Quantifying the value of prevention — from reduced insurance premiums and regulatory fines to improved workforce morale and retention.</p>
+            </div>
+            <span class="svc-row__tags">Strategy</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="cta">
+      <div class="bloom" aria-hidden="true"></div>
+      <div class="wrap">
+        <h2 class="cta__title" data-reveal>Stay updated on <em>new insights.</em></h2>
+        <p class="cta__sub" data-reveal>Get notified when new articles on predictive safety, AI governance and HSE leadership are published.</p>
+        <div class="cta__actions" data-reveal>
+          <a href="contact.html" class="btn btn--solid" data-magnet>Subscribe</a>
+          <a href="https://www.linkedin.com/in/doseofhse/" target="_blank" rel="noopener" class="arrow-link">Read on LinkedIn <span class="arr">→</span></a>
+        </div>
+      </div>
+    </section>
+  </main>
+
   <footer class="pagefoot">
-    <div class="container pagefoot-inner">
+    <div class="wrap pagefoot__in">
       <span>© 2026 Dr. Nadeem Irfan Ukaye · Abu Dhabi, UAE</span>
-      <div class="row" style="gap: var(--gap-lg);">
-        <a href="https://www.linkedin.com/in/doseofhse/" target="_blank">LinkedIn</a>
+      <div class="pagefoot__links">
+        <a href="https://www.linkedin.com/in/doseofhse/" target="_blank" rel="noopener">LinkedIn</a>
         <a href="mailto:drukaye@gmail.com">Email</a>
       </div>
     </div>
   </footer>
 
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrollTrigger.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/lenis@1.1.18/dist/lenis.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/three@0.149.0/build/three.min.js"></script>
+  <script src="app.js"></script>
 </body>
 </html>

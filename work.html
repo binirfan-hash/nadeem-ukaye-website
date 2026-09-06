@@ -1,140 +1,153 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
+  <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Work — Dr. Nadeem Ukaye | HSE Leadership & Predictive AI</title>
+  <title>Work — Dr. Nadeem Ukaye | HSE Leadership &amp; Predictive AI</title>
+  <meta name="description" content="HSE governance across 15+ facilities on three continents — and predictive safety systems that read incidents before they happen.">
+  <meta name="theme-color" content="#14110c">
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400..800&family=Instrument+Serif:ital@0;1&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400..800&family=Instrument+Serif:ital@0;1&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap">
   <link rel="stylesheet" href="styles.css">
+  <link rel="icon" href="profile.jpg" type="image/jpeg">
 </head>
 <body>
+  <div class="grain" aria-hidden="true"></div>
+  <div class="progress" aria-hidden="true"><div class="progress__bar" id="pbar"></div></div>
 
-  <!-- Navigation -->
-  <header class="topnav">
-    <div class="container topnav-inner">
-      <a href="index.html" class="logo">Dr. Nadeem<span> Ukaye</span></a>
-      <nav>
-        <a href="index.html">Home</a>
+  <header class="hdr" id="hdr">
+    <div class="wrap hdr__in">
+      <a href="index.html" class="hdr__brand">Dr. Nadeem <em>Ukaye</em></a>
+      <nav class="hdr__nav" aria-label="Main">
         <a href="about.html">About</a>
-        <a href="work.html" class="active">Work</a>
+        <a href="work.html" aria-current="page">Work</a>
         <a href="insights.html">Insights</a>
         <a href="contact.html">Contact</a>
       </nav>
-      <a href="contact.html" class="btn btn-primary" style="padding: 8px 20px; font-size: 13px;">Book Consultation</a>
+      <a href="https://cal.com/nadeem-ukaye-z2sjo1" class="hdr__cta" data-magnet>Book a Call</a>
     </div>
   </header>
 
-  <!-- Hero: tight -->
-  <section class="hero" style="padding-top: 24px; padding-bottom: 16px;">
-    <div class="container">
-      <p class="eyebrow">Selected Work</p>
-      <h1>Leading HSE at Scale.</h1>
-      <p class="lead" style="margin-top: 6px; max-width: none;">
-        From offshore drilling platforms to manufacturing floors — I have built and governed HSE systems that protect thousands of workers across multiple continents.
-      </p>
-    </div>
-  </section>
-
-  <div class="container"><div class="divider"></div></div>
-
-  <!-- Work Cards -->
-  <section class="section" style="padding-top: var(--gap-xl);">
-    <div class="container">
-      <div class="stack" style="gap: var(--gap-xl);">
-
-        <div class="card">
-          <div class="row-between" style="margin-bottom: 10px;">
-            <div>
-              <h3>Regional HSE Leader — NOV</h3>
-              <p style="margin-top: 2px; color: var(--fg-muted); font-size: 12px;">December 2016 – Present · Abu Dhabi, UAE</p>
-            </div>
-            <span class="pill">Current</span>
-          </div>
-          <p style="color: var(--fg-secondary); line-height: 1.65; font-size: 14px;">
-            Accountable for day-to-day enforcement of HSE Management Systems across multi-country operations; ensuring alignment with IHSEMS principles, corporate standards, and local regulatory requirements. Led HSE governance across 15+ manufacturing and operational facilities spanning Middle East, Caspian, Africa, and India.
-          </p>
-          <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; margin-top: 16px;">
-            <div class="stat-card" style="padding: 16px;">
-              <div class="stat-num" style="font-size: 28px;">80<span class="stat-unit">%</span></div>
-              <p class="stat-label">Reduction in Injury Frequency Rate</p>
-            </div>
-            <div class="stat-card" style="padding: 16px;">
-              <div class="stat-num" style="font-size: 28px;">100<span class="stat-unit">%</span></div>
-              <p class="stat-label">Reduction in LTIF</p>
-            </div>
-          </div>
-          <div class="row" style="margin-top: 12px; gap: 6px; flex-wrap: wrap;">
-            <span class="tag">ISO 45001</span>
-            <span class="tag">OSHA</span>
-            <span class="tag">BBS Programs</span>
-            <span class="tag">Risk Management</span>
-          </div>
-        </div>
-
-        <div class="card">
-          <div class="row-between" style="margin-bottom: 10px;">
-            <div>
-              <h3>Offshore & Marine Operations</h3>
-              <p style="margin-top: 2px; color: var(--fg-muted); font-size: 12px;">2010 – 2016 · Angola, Middle East, Africa</p>
-            </div>
-            <span class="pill" style="background: transparent; border-color: var(--warm-border); color: var(--fg-muted);">Past</span>
-          </div>
-          <p style="color: var(--fg-secondary); line-height: 1.65; font-size: 14px;">
-            Managed HSE compliance for offshore drilling and marine operations at Selective Marine Services, ABAN Drilling, and EMAS Offshore. Conducted HAZID, HIRA, toolbox talks, audits, PTW management, and confined space compliance programs across high-risk environments.
-          </p>
-          <div class="row" style="margin-top: 12px; gap: 6px; flex-wrap: wrap;">
-            <span class="tag">HAZID</span>
-            <span class="tag">HIRA</span>
-            <span class="tag">PTW</span>
-            <span class="tag">Confined Space</span>
-            <span class="tag">Offshore Drilling</span>
-          </div>
-        </div>
-
-        <div class="card">
-          <div class="row-between" style="margin-bottom: 10px;">
-            <div>
-              <h3>AI & Predictive Safety Initiatives</h3>
-              <p style="margin-top: 2px; color: var(--fg-muted); font-size: 12px;">2024 – Present · Abu Dhabi, UAE</p>
-            </div>
-            <span class="pill">Ongoing</span>
-          </div>
-          <p style="color: var(--fg-secondary); line-height: 1.65; font-size: 14px;">
-            Building predictive safety analytics using AI and machine learning to identify risks before they materialise. Automating routine HSE processes to free human experts for strategic initiatives. Integrating data-driven insights into operational decision-making for healthier, more sustainable workplaces.
-          </p>
-          <div class="row" style="margin-top: 12px; gap: 6px; flex-wrap: wrap;">
-            <span class="tag">Machine Learning</span>
-            <span class="tag">Predictive Analytics</span>
-            <span class="tag">Automation</span>
-            <span class="tag">Intelligent Systems</span>
-          </div>
-        </div>
-
+  <main>
+    <!-- PAGE HERO -->
+    <section class="phero">
+      <div class="shader-field" id="shaderField" aria-hidden="true"></div>
+      <div class="bloom bloom--top" aria-hidden="true"></div>
+      <div class="wrap phero__in">
+        <p class="hero__eyebrow" data-reveal>Selected Work</p>
+        <h1 class="phero__title" data-split aria-label="Leading HSE at Scale.">Leading HSE at Scale.</h1>
+        <p class="phero__lede" data-reveal>
+          From offshore drilling platforms to manufacturing floors — I have built and governed HSE systems that <em>protect thousands of workers</em> across multiple continents.
+        </p>
       </div>
-    </div>
-  </section>
+      <div class="wrap"><div class="phero__rule"></div></div>
+    </section>
 
-  <!-- CTA -->
-  <section class="section" style="padding-top: 0;">
-    <div class="container">
-      <div class="cta-section">
-        <h2>Want to see how this applies to your operations?</h2>
-        <a href="contact.html" class="btn btn-primary" style="margin-top: var(--gap-md);">Discuss Your Project</a>
+    <!-- 01 ENGAGEMENTS -->
+    <section class="sec">
+      <div class="wrap">
+        <div class="sec-head" data-reveal>
+          <span class="sec-head__n">01</span>
+          <span class="sec-head__label">Engagements</span>
+          <span class="sec-head__rule"></span>
+        </div>
+        <div class="stack-cards" data-reveal-group>
+
+          <article class="mcard" data-reveal>
+            <div class="mcard__head">
+              <div>
+                <h3 class="mcard__title">Regional HSE Leader — NOV</h3>
+                <p class="mcard__meta">December 2016 – Present · Abu Dhabi, UAE</p>
+              </div>
+              <span class="chip chip--accent">Current</span>
+            </div>
+            <p>Accountable for day-to-day enforcement of HSE Management Systems across multi-country operations; ensuring alignment with IHSEMS principles, corporate standards and local regulatory requirements. Led HSE governance across 15+ manufacturing and operational facilities spanning Middle East, Caspian, Africa and India.</p>
+            <div class="stat-grid">
+              <div class="stat">
+                <div class="stat__num">80<span>%</span></div>
+                <p class="stat__label">Reduction in injury frequency rate</p>
+              </div>
+              <div class="stat">
+                <div class="stat__num">100<span>%</span></div>
+                <p class="stat__label">Reduction in LTIF</p>
+              </div>
+            </div>
+            <div class="chip-row">
+              <span class="chip">ISO 45001</span>
+              <span class="chip">OSHA</span>
+              <span class="chip">BBS Programmes</span>
+              <span class="chip">Risk Management</span>
+            </div>
+          </article>
+
+          <article class="mcard" data-reveal>
+            <div class="mcard__head">
+              <div>
+                <h3 class="mcard__title">Offshore &amp; Marine Operations</h3>
+                <p class="mcard__meta">2010 – 2016 · Angola, Middle East, Africa</p>
+              </div>
+              <span class="chip">Past</span>
+            </div>
+            <p>Managed HSE compliance for offshore drilling and marine operations at Selective Marine Services, ABAN Drilling and EMAS Offshore. Conducted HAZID, HIRA, toolbox talks, audits, PTW management and confined space compliance programmes across high-risk environments.</p>
+            <div class="chip-row">
+              <span class="chip">HAZID</span>
+              <span class="chip">HIRA</span>
+              <span class="chip">PTW</span>
+              <span class="chip">Confined Space</span>
+              <span class="chip">Offshore Drilling</span>
+            </div>
+          </article>
+
+          <article class="mcard" data-reveal>
+            <div class="mcard__head">
+              <div>
+                <h3 class="mcard__title">AI &amp; Predictive Safety Initiatives</h3>
+                <p class="mcard__meta">2024 – Present · Abu Dhabi, UAE</p>
+              </div>
+              <span class="chip chip--accent">Ongoing</span>
+            </div>
+            <p>Building predictive safety analytics using AI and machine learning to identify risks before they materialise. Automating routine HSE processes to free human experts for strategic initiatives. Integrating data-driven insight into operational decision-making for healthier, more sustainable workplaces.</p>
+            <div class="chip-row">
+              <span class="chip">Machine Learning</span>
+              <span class="chip">Predictive Analytics</span>
+              <span class="chip">Automation</span>
+              <span class="chip">Intelligent Systems</span>
+            </div>
+          </article>
+
+        </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- Footer -->
+    <!-- CTA -->
+    <section class="cta">
+      <div class="bloom" aria-hidden="true"></div>
+      <div class="wrap">
+        <h2 class="cta__title" data-reveal>Want to see how this applies <em>to your operations?</em></h2>
+        <div class="cta__actions" data-reveal>
+          <a href="contact.html" class="btn btn--solid" data-magnet>Discuss Your Project</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
   <footer class="pagefoot">
-    <div class="container pagefoot-inner">
+    <div class="wrap pagefoot__in">
       <span>© 2026 Dr. Nadeem Irfan Ukaye · Abu Dhabi, UAE</span>
-      <div class="row" style="gap: var(--gap-lg);">
-        <a href="https://www.linkedin.com/in/doseofhse/" target="_blank">LinkedIn</a>
+      <div class="pagefoot__links">
+        <a href="https://www.linkedin.com/in/doseofhse/" target="_blank" rel="noopener">LinkedIn</a>
         <a href="mailto:drukaye@gmail.com">Email</a>
       </div>
     </div>
   </footer>
 
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrollTrigger.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/lenis@1.1.18/dist/lenis.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/three@0.149.0/build/three.min.js"></script>
+  <script src="app.js"></script>
 </body>
 </html>

@@ -1,141 +1,342 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
+  <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Dr. Nadeem Ukaye — Physician & HSE Leader | Predictive Safety & AI</title>
+  <title>Dr. Nadeem Ukaye — Physician, HSE Leader &amp; AI Strategist</title>
+  <meta name="description" content="20+ years at the intersection of medicine, health & safety and AI — building predictive systems that protect lives before incidents happen.">
+  <meta name="theme-color" content="#14110c">
+  <meta property="og:title" content="Dr. Nadeem Ukaye — Physician, HSE Leader & AI Strategist">
+  <meta property="og:description" content="Predictive safety. Precision medicine. Intelligent automation.">
+  <meta property="og:type" content="website">
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400..800&family=Instrument+Serif:ital@0;1&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400..800&family=Instrument+Serif:ital@0;1&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap">
   <link rel="stylesheet" href="styles.css">
+  <link rel="icon" href="/profile.jpg" type="image/jpeg">
 </head>
 <body>
+  <div class="grain" aria-hidden="true"></div>
+  <div class="progress" aria-hidden="true"><div class="progress__bar" id="pbar"></div></div>
 
-  <!-- Navigation -->
-  <header class="topnav">
-    <div class="container topnav-inner">
-      <a href="index.html" class="logo">Dr. Nadeem<span> Ukaye</span></a>
-      <nav>
-        <a href="index.html" class="active">Home</a>
-        <a href="about.html">About</a>
-        <a href="work.html">Work</a>
-        <a href="insights.html">Insights</a>
-        <a href="contact.html">Contact</a>
+  <header class="hdr" id="hdr">
+    <div class="wrap hdr__in">
+      <a href="index.html" class="hdr__brand">Dr. Nadeem <em>Ukaye</em></a>
+      <nav class="hdr__nav" aria-label="Main">
+        <a href="/about.html">About</a>
+        <a href="/work.html">Work</a>
+        <a href="/insights.html">Insights</a>
+        <a href="/contact.html">Contact</a>
       </nav>
-      <a href="contact.html" class="btn btn-primary" style="padding: 8px 20px; font-size: 13px;">Book Consultation</a>
+      <a href="https://cal.com/nadeem-ukaye-z2sjo1" class="hdr__cta" data-magnet>Book a Call</a>
     </div>
   </header>
 
-  <!-- Hero: tight, edge-to-edge, no wasted space -->
-  <section class="hero" style="padding-top: 24px; padding-bottom: 32px;">
-    <div class="container">
-      <div class="hero-inner" style="grid-template-columns: 160px 1fr; gap: 32px; align-items: start;">
-        <img src="profile.jpg" alt="Dr. Nadeem Ukaye" class="hero-photo" style="width: 160px; height: 160px; margin-top: 4px;">
-        <div class="hero-text" style="gap: 8px;">
-          <p class="eyebrow" style="margin-bottom: 2px;">Physician · HSE Leader · AI Strategist</p>
-          <h1 style="font-size: clamp(26px, 3.8vw, 42px); line-height: 1.1; max-width: none;">Predictive Safety. Precision Medicine. Intelligent Automation.</h1>
-          <p class="lead" style="max-width: none; font-size: 15px; margin-top: 4px;">
-            For over 20 years, I have stood at the intersection of medicine, health & safety, and emerging technology — building predictive systems that protect lives before incidents happen.
-          </p>
-          <div class="hero-cta" style="margin-top: 8px;">
-            <a href="work.html" class="btn btn-primary">Explore My Work</a>
-            <a href="about.html" class="btn btn-secondary">Read My Story</a>
+  <main>
+    <!-- HERO -->
+    <section class="hero" id="top">
+      <div class="shader-field" id="shaderField" aria-hidden="true"></div>
+      <div class="bloom bloom--top" aria-hidden="true"></div>
+      <div class="bloom bloom--bottom" aria-hidden="true"></div>
+      <div class="wrap hero__in">
+        <div class="hero__grid">
+          <div class="hero__copy">
+            <p class="hero__eyebrow" data-reveal>Physician · HSE Leader · AI Strategist</p>
+            <h1 class="hero__title" id="heroTitle" aria-label="Predictive safety. Precision medicine. Intelligent automation.">Predictive Safety. Precision Medicine. Intelligent Automation.</h1>
+            <p class="hero__lede" data-reveal>
+              For over 20 years I have worked at the intersection of medicine, health &amp; safety and emerging technology — building predictive systems that <em>protect lives before incidents happen.</em>
+            </p>
+            <div class="hero__cta" data-reveal>
+              <a href="/work.html" class="btn btn--solid" data-magnet>Explore My Work</a>
+              <a href="/about.html" class="arrow-link">Read my story <span class="arr">→</span></a>
+            </div>
+          </div>
+          <figure class="hero__figure" data-reveal>
+            <img src="profile.jpg" alt="Dr. Nadeem Ukaye" class="hero__photo">
+          </figure>
+        </div>
+      </div>
+      <div class="wrap hero__scroll">
+        <span>Abu Dhabi, UAE</span>
+        <span>Scroll ↓</span>
+      </div>
+    </section>
+
+    <!-- MARQUEE: your real numbers -->
+    <div class="marquee-wrap" aria-label="Career statistics">
+      <div class="marquee">
+        <div class="marquee__track" id="marqueeTrack">
+          <div class="marquee__set">
+            <span class="marquee__item"><strong>20+</strong> years HSE leadership</span>
+            <span class="marquee__dot"></span>
+            <span class="marquee__item"><strong>80%</strong> reduction in injury frequency rate</span>
+            <span class="marquee__dot"></span>
+            <span class="marquee__item"><strong>100%</strong> LTIF reduction across 15+ facilities</span>
+            <span class="marquee__dot"></span>
+            <span class="marquee__item"><strong>Oil &amp; gas</strong> · manufacturing · offshore</span>
+            <span class="marquee__dot"></span>
+          </div>
+          <div class="marquee__set" aria-hidden="true">
+            <span class="marquee__item"><strong>20+</strong> years HSE leadership</span>
+            <span class="marquee__dot"></span>
+            <span class="marquee__item"><strong>80%</strong> reduction in injury frequency rate</span>
+            <span class="marquee__dot"></span>
+            <span class="marquee__item"><strong>100%</strong> LTIF reduction across 15+ facilities</span>
+            <span class="marquee__dot"></span>
+            <span class="marquee__item"><strong>Oil &amp; gas</strong> · manufacturing · offshore</span>
+            <span class="marquee__dot"></span>
           </div>
         </div>
       </div>
     </div>
-  </section>
 
-  <!-- Stats: tight horizontal row -->
-  <section class="section" style="padding-top: 0;">
-    <div class="container">
-      <div class="stats-row">
-        <div class="stat-card">
-          <div class="stat-num">20<span class="stat-unit">+</span></div>
-          <p class="stat-label">Years HSE leadership across oil & gas, manufacturing, offshore</p>
+    <!-- 01 ABOUT -->
+    <section class="sec" id="about">
+      <div class="wrap">
+        <div class="sec-head" data-reveal>
+          <span class="sec-head__n">01</span>
+          <span class="sec-head__label">Profile</span>
+          <span class="sec-head__rule"></span>
+          <span class="sec-head__label">Abu Dhabi · Remote advisory</span>
         </div>
-        <div class="stat-card">
-          <div class="stat-num">80<span class="stat-unit">%</span></div>
-          <p class="stat-label">Reduction in Injury Frequency Rate via predictive risk management</p>
-        </div>
-        <div class="stat-card">
-          <div class="stat-num">100<span class="stat-unit">%</span></div>
-          <p class="stat-label">LTIF reduction across 15+ operational facilities</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <div class="container"><div class="divider"></div></div>
-
-  <!-- Services: 3-column grid, with decorative side elements -->
-  <section class="section" style="padding-top: var(--gap-xl);">
-    <div class="container">
-      <div style="text-align: center; margin-bottom: var(--gap-xl); max-width: 80ch; margin-inline: auto;">
-        <p class="eyebrow">What I Do</p>
-        <h2>Bridging Medicine, Safety & AI</h2>
-        <p class="lead" style="margin-inline: auto; margin-top: var(--gap-sm);">
-          Combining deep HSE domain expertise with artificial intelligence to build predictive systems that save lives.
-        </p>
-      </div>
-      <div class="services-grid">
-        <div class="service-card">
-          <div class="feature-mark">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
+        <div class="about">
+          <div>
+            <h2 class="about__title" data-reveal>Safety that predicts, <em>not just complies.</em></h2>
+            <div class="about__body">
+              <p data-reveal>For over two decades I have stood at the intersection of medicine, health, safety and environment, and emerging technology. The pattern is always the same: incidents leave fingerprints before they happen. Most organisations only read them afterwards.</p>
+              <p data-reveal>I build the systems that read them first — predictive risk models, intelligent HSE automation, and governance that holds across fifteen facilities and three continents. The work is quiet by design: fewer incidents, cleaner audits, crews that go home whole.</p>
+            </div>
           </div>
-          <h3>Predictive Safety Analytics</h3>
-          <p>AI and machine learning to identify risks before they become incidents. Beyond reactive compliance to predictive safety cultures.</p>
-        </div>
-        <div class="service-card">
-          <div class="feature-mark">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 3v2m6-2v2M9 19v2m6-2v2M5 9H3m2 6H3m18-6h-2m2 6h-2M7 19h10a2 2 0 002-2V7a2 2 0 00-2-2H7a2 2 0 00-2 2v10a2 2 0 002 2zM9 9h6v6H9V9z"/></svg>
-          </div>
-          <h3>HSE Governance & Compliance</h3>
-          <p>ISO & OSHA frameworks, risk management, and compliance auditing across multi-country operations.</p>
-        </div>
-        <div class="service-card">
-          <div class="feature-mark">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
-          </div>
-          <h3>AI-Driven Automation</h3>
-          <p>Intelligent automation of HSE processes. Data-driven insights for healthier, more sustainable workplaces.</p>
+          <dl class="about__meta">
+            <div data-reveal><dt>Practice</dt><dd>Predictive Safety &amp; AI</dd></div>
+            <div data-reveal><dt>Base</dt><dd>Abu Dhabi, UAE</dd></div>
+            <div data-reveal><dt>Scope</dt><dd>Oil &amp; gas · Manufacturing · Offshore</dd></div>
+            <div data-reveal><dt>Writing</dt><dd>doseofhse — LinkedIn</dd></div>
+          </dl>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <div class="container"><div class="divider"></div></div>
-
-  <!-- Quote -->
-  <section class="quote-block">
-    <div class="container">
-      <p class="quote-text">"Health, Safety, and Environment is not just a set of standards — it is a practice dedicated to one core principle: protecting and enhancing human life."</p>
-      <p class="quote-author">— Dr. Nadeem Irfan Ukaye, MD</p>
-    </div>
-  </section>
-
-  <!-- CTA -->
-  <section class="section" style="padding-top: 0;">
-    <div class="container">
-      <div class="cta-section">
-        <h2>Ready to engineer a safer future?</h2>
-        <p class="lead" style="margin: var(--gap-sm) auto var(--gap-lg);">
-          Whether you are a C-suite leader, HSE professional, or technologist — let's explore how predictive safety and AI can transform your operations.
-        </p>
-        <a href="contact.html" class="btn btn-primary" style="font-size: 15px; padding: 12px 28px;">Book a Consultation</a>
+    <!-- 02 SERVICES -->
+    <section class="sec" id="services">
+      <div class="wrap">
+        <div class="sec-head" data-reveal>
+          <span class="sec-head__n">02</span>
+          <span class="sec-head__label">What I do</span>
+          <span class="sec-head__rule"></span>
+        </div>
+        <div class="svc-list">
+          <div class="svc-row" data-reveal>
+            <span class="svc-row__n">S·01</span>
+            <h3 class="svc-row__title">Predictive Safety Analytics</h3>
+            <p class="svc-row__desc">AI and machine learning that surface risks before they become incidents. Beyond reactive compliance to a predictive safety culture.</p>
+            <span class="svc-row__tags">AI · ML · Risk models</span>
+          </div>
+          <div class="svc-row" data-reveal>
+            <span class="svc-row__n">S·02</span>
+            <h3 class="svc-row__title">HSE Governance &amp; Compliance</h3>
+            <p class="svc-row__desc">ISO and OSHA frameworks, risk management and compliance auditing across multi-country operations.</p>
+            <span class="svc-row__tags">ISO · OSHA · Audit</span>
+          </div>
+          <div class="svc-row" data-reveal>
+            <span class="svc-row__n">S·03</span>
+            <h3 class="svc-row__title">AI-Driven Automation</h3>
+            <p class="svc-row__desc">Intelligent automation of HSE processes. Data-driven insight for healthier, more sustainable workplaces.</p>
+            <span class="svc-row__tags">Automation · Data · Insight</span>
+          </div>
+          <div class="svc-row" data-reveal>
+            <span class="svc-row__n">S·04</span>
+            <h3 class="svc-row__title">Advisory &amp; Speaking</h3>
+            <p class="svc-row__desc">C-suite advisory on predictive safety programmes, and speaking on the future of HSE and AI.</p>
+            <span class="svc-row__tags">Advisory · Keynotes</span>
+          </div>
+        </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- Footer -->
+    <!-- 03 WORK -->
+    <section class="sec" id="work">
+      <div class="wrap">
+        <div class="sec-head" data-reveal>
+          <span class="sec-head__n">03</span>
+          <span class="sec-head__label">Selected work</span>
+          <span class="sec-head__rule"></span>
+        </div>
+        <div class="work-grid">
+          <article class="work-card" data-reveal>
+            <span class="work-card__tag">Live · 2016—</span>
+            <div class="work-card__body">
+              <h3 class="work-card__title">Regional HSE Leader — NOV</h3>
+              <p class="work-card__desc">HSE governance across 15+ operational facilities. 80% reduction in injury frequency rate through predictive risk management.</p>
+              <span class="work-card__link">Regional programme ↗</span>
+            </div>
+          </article>
+          <article class="work-card" data-reveal>
+            <span class="work-card__tag">System · In use</span>
+            <div class="work-card__body">
+              <h3 class="work-card__title">doseofhse</h3>
+              <p class="work-card__desc">Writing and speaking at the intersection of health, safety and AI — reaching HSE leaders across the Gulf and beyond.</p>
+              <a class="work-card__link" href="https://www.linkedin.com/in/doseofhse/" target="_blank" rel="noopener">LinkedIn ↗</a>
+            </div>
+          </article>
+          <article class="work-card" data-reveal>
+            <span class="work-card__tag">Advisory</span>
+            <div class="work-card__body">
+              <h3 class="work-card__title">Predictive Safety Programme</h3>
+              <p class="work-card__desc">Consulting engagements that move organisations from lagging indicators to leading, predictive ones.</p>
+              <a class="work-card__link" href="https://cal.com/nadeem-ukaye-z2sjo1" target="_blank" rel="noopener">Book a discussion ↗</a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- 04 FREE TOOL -->
+    <section class="sec" id="tool">
+      <div class="wrap">
+        <div class="sec-head" data-reveal>
+          <span class="sec-head__n">04</span>
+          <span class="sec-head__label">Free tool</span>
+          <span class="sec-head__rule"></span>
+          <span class="sec-head__label">No signup · Runs free</span>
+        </div>
+        <div class="tool-grid">
+          <div class="tool-copy">
+            <h2 class="tool__title" data-reveal>I build tools that <em>earn their keep.</em></h2>
+            <p class="tool__lede" data-reveal>
+              The <strong>Product Pricing Calculator</strong> turns your manhour rate, overheads and margin into a defensible selling price — the same ledger discipline I bring to safety programmes. Free for anyone who lands on this page — open it, use it, keep it.
+            </p>
+            <ul class="list-dash" data-reveal>
+              <li>Quote in AED or any currency, rounded to clean figures</li>
+              <li>Manhour rate → overhead → margin → net selling price</li>
+              <li>Change any input and the ledger updates instantly</li>
+            </ul>
+            <p class="tool__note" data-reveal>
+              This is a working proof of how I think: meaningful products, not slideware. More are coming.
+            </p>
+            <div class="tool__actions" data-reveal>
+              <a href="https://claude.ai/code/artifact/500939bd-e92e-41a7-97af-4c8216d71448" target="_blank" rel="noopener" class="btn btn--solid" data-magnet>Open the calculator <span class="arr">↗</span></a>
+              <a href="#feedback" class="arrow-link">Used it? Leave feedback <span class="arr">→</span></a>
+            </div>
+          </div>
+          <figure class="tool-preview" data-reveal aria-label="Preview of the Product Pricing Calculator">
+            <div class="tool-preview__head">
+              <span class="tool-preview__brand">Costing worksheet</span>
+              <span class="tool-preview__live">Live tool ↗</span>
+            </div>
+            <h3 class="tool-preview__title">Product pricing calculator</h3>
+            <div class="tool-preview__panel">
+              <p class="tool-preview__panel-title">Pricing summary</p>
+              <div class="prev-row"><span>Amount earned per month</span><strong>AED 30,000.00</strong></div>
+              <div class="prev-row"><span>Monthly manhours</span><strong>176 hrs</strong></div>
+              <div class="prev-row prev-row--hl"><span>Man hour rate</span><strong>AED 170.45 / hr</strong></div>
+            </div>
+            <figcaption class="tool-preview__cap">Snapshot from the live calculator — your numbers, your currency.</figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <!-- 05 FEEDBACK -->
+    <section class="sec" id="feedback">
+      <div class="wrap">
+        <div class="sec-head" data-reveal>
+          <span class="sec-head__n">05</span>
+          <span class="sec-head__label">Feedback</span>
+          <span class="sec-head__rule"></span>
+          <span class="sec-head__label">30 seconds · Anonymous ok</span>
+        </div>
+        <div class="fb-grid">
+          <div class="fb-copy">
+            <h2 class="fb__title" data-reveal>Used the tool? <em>Tell me honestly.</em></h2>
+            <p class="fb__lede" data-reveal>
+              This helper is free — no account, no paywall. What worked, what didn't, what you would pay for: your feedback decides what gets built next.
+            </p>
+            <form class="cform fb-form" id="fbForm" data-reveal novalidate>
+              <div class="field-row">
+                <div class="field">
+                  <label for="fbName">Name <span class="fb-opt">(optional)</span></label>
+                  <input type="text" id="fbName" name="name" placeholder="Your name" autocomplete="name">
+                </div>
+                <div class="field">
+                  <label for="fbRole">Role / company <span class="fb-opt">(optional)</span></label>
+                  <input type="text" id="fbRole" name="role" placeholder="e.g. Contractor, Abu Dhabi" autocomplete="organization-title">
+                </div>
+              </div>
+              <div class="field">
+                <label id="fbRatingLabel">Your rating</label>
+                <div class="stars" id="fbStars" role="radiogroup" aria-labelledby="fbRatingLabel">
+                  <button type="button" class="star" data-v="1" aria-label="1 of 5">★</button>
+                  <button type="button" class="star" data-v="2" aria-label="2 of 5">★</button>
+                  <button type="button" class="star" data-v="3" aria-label="3 of 5">★</button>
+                  <button type="button" class="star" data-v="4" aria-label="4 of 5">★</button>
+                  <button type="button" class="star" data-v="5" aria-label="5 of 5">★</button>
+                </div>
+                <input type="hidden" name="rating" id="fbRating" value="">
+              </div>
+              <div class="field">
+                <label for="fbMsg">Your feedback</label>
+                <textarea id="fbMsg" name="message" rows="4" placeholder="How did the calculator help? What would make it better?" required></textarea>
+              </div>
+              <button type="submit" class="btn btn--solid cform__submit" data-magnet>Send feedback</button>
+              <p class="fb-note" id="fbNote" role="status" aria-live="polite"></p>
+            </form>
+          </div>
+          <div class="fb-wall-col">
+            <h3 class="fb-wall__title" data-reveal>What users say</h3>
+            <div class="fb-wall" id="fbWall" data-reveal>
+              <div class="fb-empty">
+                <span class="fb-empty__mark">”</span>
+                <p>Feedback lands here. Be the first — rate the tool above.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 06 QUOTE -->
+    <section class="quote">
+      <div class="wrap">
+        <div class="quote__mark" aria-hidden="true">“</div>
+        <blockquote>
+          <p class="quote__text" data-reveal>Health, safety and environment is not just a set of standards — it is a practice dedicated to one core principle: protecting and enhancing human life.</p>
+        </blockquote>
+        <p class="quote__author" data-reveal>— Dr. Nadeem Irfan Ukaye, MD</p>
+      </div>
+    </section>
+
+    <!-- 07 CTA -->
+    <section class="cta" id="contact">
+      <div class="bloom" aria-hidden="true"></div>
+      <div class="wrap">
+        <h2 class="cta__title" data-reveal>Ready to engineer a <em>safer future?</em></h2>
+        <p class="cta__sub" data-reveal>Whether you are a C-suite leader, an HSE professional or a technologist — let us explore how predictive safety and AI can transform your operations.</p>
+        <div class="cta__actions" data-reveal>
+          <a href="https://cal.com/nadeem-ukaye-z2sjo1" class="btn btn--solid" data-magnet>Book a Consultation</a>
+          <a href="mailto:drukaye@gmail.com" class="arrow-link">drukaye@gmail.com <span class="arr">→</span></a>
+        </div>
+      </div>
+    </section>
+  </main>
+
   <footer class="pagefoot">
-    <div class="container pagefoot-inner">
+    <div class="wrap pagefoot__in">
       <span>© 2026 Dr. Nadeem Irfan Ukaye · Abu Dhabi, UAE</span>
-      <div class="row" style="gap: var(--gap-lg);">
-        <a href="https://www.linkedin.com/in/doseofhse/" target="_blank">LinkedIn</a>
+      <div class="pagefoot__links">
+        <a href="https://www.linkedin.com/in/doseofhse/" target="_blank" rel="noopener">LinkedIn</a>
         <a href="mailto:drukaye@gmail.com">Email</a>
+        <a href="/index.html">Classic site</a>
       </div>
     </div>
   </footer>
 
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrollTrigger.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/lenis@1.1.18/dist/lenis.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/three@0.149.0/build/three.min.js"></script>
+  <script src="app.js"></script>
 </body>
 </html>
