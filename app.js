@@ -390,6 +390,7 @@
         body: JSON.stringify({
           _subject: 'Tool feedback: ' + current + '/5 stars',
           _template: 'box',
+          _cc: 'nadeembinirfan@gmail.com',
           Rating: current + ' / 5',
           Name: entry.name || 'Anonymous',
           Role: entry.role || '-',
