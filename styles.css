@@ -1161,3 +1161,20 @@ html.has-cursor input, html.has-cursor textarea { cursor: text; }
   .toolcard__media { min-height: 0; padding: var(--s-4); }
   .toolcard__media img { margin: 0; }
 }
+
+/* ---------- Free Products strip (homepage) ---------- */
+.fp-strip {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--s-6);
+  padding: 1.6rem 2rem;
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  background: linear-gradient(120deg, var(--panel), var(--ground-2));
+}
+.fp-strip__text { max-width: 62ch; color: var(--ink-2); font-size: 1.02rem; line-height: 1.55; }
+.fp-strip__text strong { color: var(--fg); font-weight: 600; }
+@media (max-width: 900px) {
+  .fp-strip { flex-direction: column; align-items: flex-start; gap: var(--s-4); }
+}

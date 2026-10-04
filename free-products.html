@@ -90,7 +90,7 @@
               </ul>
               <div class="toolcard__actions">
                 <a href="https://claude.ai/artifact/RfJ4VdETGfiUWxNyxNAwML" target="_blank" rel="noopener" class="btn btn--solid" data-magnet>Open the ROI Calculator <span class="arr">↗</span></a>
-                <a href="/index.html#feedback" class="arrow-link">Used it? Leave feedback <span class="arr">→</span></a>
+                <a href="#feedback" class="arrow-link">Used it? Leave feedback <span class="arr">→</span></a>
               </div>
             </div>
           </article>
@@ -121,7 +121,7 @@
               </ul>
               <div class="toolcard__actions">
                 <a href="https://claude.ai/code/artifact/500939bd-e92e-41a7-97af-4c8216d71448" target="_blank" rel="noopener" class="btn btn--solid" data-magnet>Open the calculator <span class="arr">↗</span></a>
-                <a href="/index.html#feedback" class="arrow-link">Used it? Leave feedback <span class="arr">→</span></a>
+                <a href="#feedback" class="arrow-link">Used it? Leave feedback <span class="arr">→</span></a>
               </div>
             </div>
           </article>
@@ -146,7 +146,66 @@
       </div>
     </section>
 
-    <!-- 02 CTA -->
+
+    <!-- 02 FEEDBACK -->
+    <section class="sec" id="feedback">
+      <div class="wrap">
+        <div class="sec-head" data-reveal>
+          <span class="sec-head__n">02</span>
+          <span class="sec-head__label">Feedback</span>
+          <span class="sec-head__rule"></span>
+          <span class="sec-head__label">30 seconds · Anonymous ok</span>
+        </div>
+        <div class="fb-grid">
+          <div class="fb-copy">
+            <h2 class="fb__title" data-reveal>Used a tool? <em>Tell me honestly.</em></h2>
+            <p class="fb__lede" data-reveal>
+              Every tool here is free — no account, no paywall. What worked, what didn't, what you would pay for: your feedback decides what gets built next.
+            </p>
+            <form class="cform fb-form" id="fbForm" data-reveal novalidate>
+              <div class="field-row">
+                <div class="field">
+                  <label for="fbName">Name <span class="fb-opt">(optional)</span></label>
+                  <input type="text" id="fbName" name="name" placeholder="Your name" autocomplete="name">
+                </div>
+                <div class="field">
+                  <label for="fbRole">Role / company <span class="fb-opt">(optional)</span></label>
+                  <input type="text" id="fbRole" name="role" placeholder="e.g. Contractor, Abu Dhabi" autocomplete="organization-title">
+                </div>
+              </div>
+              <div class="field">
+                <label id="fbRatingLabel">Your rating</label>
+                <div class="stars" id="fbStars" role="radiogroup" aria-labelledby="fbRatingLabel">
+                  <button type="button" class="star" data-v="1" aria-label="1 of 5">★</button>
+                  <button type="button" class="star" data-v="2" aria-label="2 of 5">★</button>
+                  <button type="button" class="star" data-v="3" aria-label="3 of 5">★</button>
+                  <button type="button" class="star" data-v="4" aria-label="4 of 5">★</button>
+                  <button type="button" class="star" data-v="5" aria-label="5 of 5">★</button>
+                </div>
+                <input type="hidden" name="rating" id="fbRating" value="">
+              </div>
+              <div class="field">
+                <label for="fbMsg">Your feedback</label>
+                <textarea id="fbMsg" name="message" rows="4" placeholder="How did the tools help? What would make them better?" required></textarea>
+              </div>
+              <button type="submit" class="btn btn--solid cform__submit" data-magnet>Send feedback</button>
+              <p class="fb-note" id="fbNote" role="status" aria-live="polite"></p>
+            </form>
+          </div>
+          <div class="fb-wall-col">
+            <h3 class="fb-wall__title" data-reveal>What users say</h3>
+            <div class="fb-wall" id="fbWall" data-reveal>
+              <div class="fb-empty">
+                <span class="fb-empty__mark">”</span>
+                <p>Feedback lands here. Be the first — rate the tools above.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 03 CTA -->
     <section class="cta">
       <div class="bloom" aria-hidden="true"></div>
       <div class="wrap">
