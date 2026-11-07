@@ -1178,3 +1178,36 @@ html.has-cursor input, html.has-cursor textarea { cursor: text; }
 @media (max-width: 900px) {
   .fp-strip { flex-direction: column; align-items: flex-start; gap: var(--s-4); }
 }
+
+/* ===== M5 motion upgrade — prediction sweep era ===== */
+/* kinetic creed words */
+.creed__w { display: inline-block; will-change: opacity, transform, filter; }
+
+/* svc rows: scan underline that draws on hover, sage lead line */
+.svc-row::after {
+  content: ''; position: absolute; left: clamp(1.25rem, 2.5vw, 2rem); right: clamp(1.25rem, 2.5vw, 2rem);
+  bottom: 0; height: 1px; background: linear-gradient(90deg, var(--sage), rgba(143,166,142,0));
+  transform: scaleX(0); transform-origin: left; transition: transform .45s cubic-bezier(0.16,1,0.3,1);
+}
+.svc-row { position: relative; }
+.svc-row:hover .svc-row__n { color: var(--sage-bright); transition: color .3s; }
+
+/* work cards: deeper arrival shadow */
+.work-card { transition: background .3s, border-color .3s, transform .45s cubic-bezier(0.16,1,0.3,1), box-shadow .45s; }
+.work-card:hover { box-shadow: 0 14px 34px rgba(10,8,4,0.55); }
+
+/* browser surfaces craft */
+::-webkit-scrollbar { width: 10px; height: 10px; }
+::-webkit-scrollbar-track { background: var(--ground-2); }
+::-webkit-scrollbar-thumb { background: var(--line); border-radius: 5px; }
+::-webkit-scrollbar-thumb:hover { background: var(--sage-deep); }
+html { scrollbar-width: thin; scrollbar-color: var(--line) var(--ground-2); }
+.creed__w::selection, input, textarea { caret-color: var(--sage-bright); }
+input, textarea { caret-color: var(--sage-bright); }
+
+/* cross-page continuity (progressive; no-op where unsupported) */
+@view-transition { navigation: auto; }
+@media (prefers-reduced-motion: reduce) {
+  @view-transition { navigation: none; }
+  .creed__w { opacity: 1 !important; filter: none !important; transform: none !important; }
+}

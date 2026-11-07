@@ -223,19 +223,31 @@
       'precision highp float;',
       'uniform vec2 uResolution;',
       'uniform float uTime;',
+      'uniform float uSweep;',
       'uniform vec3 uTint;',
+      'uniform vec3 uGold;',
+      'float hash(vec2 p) { return fract(sin(dot(p, vec2(127.1, 311.7))) * 43758.5453); }',
       'void main() {',
       '  vec2 uv = (gl_FragCoord.xy * 2.0 - uResolution.xy) / min(uResolution.x, uResolution.y);',
-      '  float t = uTime * 0.05;',
-      '  float lineWidth = 0.002;',
-      '  float v = 0.0;',
-      '  for (int j = 0; j < 3; j++) {',
-      '    for (int i = 0; i < 5; i++) {',
-      '      v += lineWidth * float(i * i) / abs(fract(t - 0.01 * float(j) + float(i) * 0.01) * 5.0 - length(uv) + mod(uv.x + uv.y, 0.2));',
-      '    }',
-      '  }',
-      '  float vignette = smoothstep(1.9, 0.25, length(uv));',
-      '  gl_FragColor = vec4(uTint * v * vignette, 1.0);',
+      '  float t = uTime;',
+      '  float angle = uSweep * 6.2831 + t * 0.05;',
+      '  float d = atan(uv.y, uv.x) - angle;',
+      '  d = mod(d + 3.14159, 6.2831) - 3.14159;',
+      '  float line = smoothstep(0.05, 0.0, abs(d)) * 0.9;',
+      '  float wake = smoothstep(0.45, 0.0, max(d, -10.0) * -1.0);',
+      '  float r = length(uv);',
+      '  float vignette = smoothstep(1.9, 0.25, r);',
+      '  vec2 cell = floor(uv * 56.0);',
+      '  float mote = hash(cell);',
+      '  float twinkle = 0.5 + 0.5 * sin(t * 1.4 + mote * 40.0);',
+      '  float present = step(0.6, mote);', // sparse dust, not a checkerboard
+      '  float pass = step(mote, wake * 0.75);',
+      '  vec3 col = uTint * (0.05 + 0.22 * twinkle * present);',
+      '  col += uTint * pass * (0.5 + 0.3 * twinkle);',
+      '  col += uGold * line * (0.8 + 0.4 * wake);',
+      '  col += uGold * wake * 0.06;',
+      '  col *= vignette;',
+      '  gl_FragColor = vec4(col, 1.0);',
       '}'
     ].join('\n');
 
@@ -244,8 +256,10 @@
     camera.position.z = 1;
     var uniforms = {
       uTime: { value: 0 },
+      uSweep: { value: 0 },
       uResolution: { value: new THREE.Vector2(1, 1) },
-      uTint: { value: new THREE.Color('#8fa68e') }
+      uTint: { value: new THREE.Color('#8fa68e') },
+      uGold: { value: new THREE.Color('#c79e69') }
     };
     var material = new THREE.ShaderMaterial({
       uniforms: uniforms,
@@ -286,10 +300,75 @@
     }
     function start() { if (!running) { running = true; tick(); } }
     function stop() { running = false; cancelAnimationFrame(raf); }
+
+    /* focal coupling: the prediction sweep accelerates as the visitor dives */
+    if (hasST) {
+      window.ScrollTrigger.create({
+        trigger: '#top', start: 'top top', end: 'bottom top', scrub: true,
+        onUpdate: function (self) { uniforms.uSweep.value = self.progress; }
+      });
+    }
+
     start();
 
     doc.addEventListener('visibilitychange', function () {
       if (doc.hidden) stop(); else start();
+    });
+  })();
+
+  /* ---------- 7b. Kinetic creed: quote words surface on scroll (support) ---------- */
+  (function () {
+    var q = doc.querySelector('.quote__text');
+    if (!q || noMotion || !hasST) return;
+    if (q.dataset.kineticBound) return;
+    q.dataset.kineticBound = '1';
+    var words = q.textContent.trim().split(/\s+/);
+    q.setAttribute('aria-label', q.textContent.trim());
+    q.textContent = '';
+    words.forEach(function (w) {
+      var s = doc.createElement('span');
+      s.className = 'creed__w';
+      s.textContent = w;
+      q.appendChild(s);
+      q.appendChild(doc.createTextNode(' '));
+    });
+    var ws = q.querySelectorAll('.creed__w');
+    gsap.set(ws, { opacity: 0.16, filter: 'blur(5px)', y: 8 });
+    gsap.to(ws, {
+      opacity: 1, filter: 'blur(0px)', y: 0, ease: 'power2.out', stagger: 0.05,
+      scrollTrigger: { trigger: '.quote', start: 'top 74%', end: 'top 26%', scrub: 0.8 }
+    });
+  })();
+
+  /* ---------- 7c. Marquee: velocity-reactive + count-up (feedback) ---------- */
+  (function () {
+    if (typeof marqueeReactive === 'function') return;
+    var track = doc.getElementById('marqueeTrack');
+    if (!track || noMotion) return;
+    // velocity-reactive speed via WAAPI playbackRate (cosmetic, silent fallback)
+    if (window.Lenis && track.getAnimations && track.getAnimations().length) {
+      var anims = track.getAnimations();
+      gsap.ticker.add(function () {
+        var v = (lenis && lenis.velocity) ? lenis.velocity : 0;
+        var rate = Math.min(2.6, 1 + Math.abs(v) * 0.12);
+        anims.forEach(function (a) { a.playbackRate = rate; });
+      });
+    }
+    // stat count-up, once
+    if (!hasST) return;
+    var nums = Array.prototype.slice.call(track.querySelectorAll('strong'));
+    nums.forEach(function (el) {
+      var raw = el.textContent;
+      var m = raw.match(/(\d+)([^0-9]*)$/);
+      if (!m) return;
+      var target = parseInt(m[1], 10);
+      var suffix = m[2] || '';
+      var obj = { n: 0 };
+      gsap.to(obj, {
+        n: target, duration: 1.4, ease: 'power2.out', snap: { n: 1 },
+        scrollTrigger: { trigger: '.marquee-wrap', start: 'top 92%', once: true },
+        onUpdate: function () { el.textContent = Math.round(obj.n) + suffix; }
+      });
     });
   })();
 
