@@ -376,6 +376,114 @@
     });
   })();
 
+  /* ---------- 7d. Highlight draw: editorial marker fills behind key phrases ---------- */
+  (function () {
+    if (!hasST || noMotion) return;
+    var els = Array.prototype.slice.call(doc.querySelectorAll('[data-hl]'));
+    els.forEach(function (el) {
+      if (el.dataset.hlBound) return;
+      el.dataset.hlBound = '1';
+      el.classList.add('hlfx');
+      gsap.fromTo(el,
+        { '--hlp': 0 },
+        { '--hlp': 1, ease: 'none',
+          scrollTrigger: { trigger: el, start: 'top 78%', end: 'top 42%', scrub: 0.6 } });
+    });
+  })();
+
+  /* ---------- 7e. Career timeline: rail draws, nodes ignite on arrival ---------- */
+  (function () {
+    var tl = doc.querySelector('.tln');
+    if (!tl || !hasST || noMotion) return;
+    if (tl.dataset.tlBound) return;
+    tl.dataset.tlBound = '1';
+    var railLine = tl.querySelector('.tln__rail i');
+    var nodes = Array.prototype.slice.call(tl.querySelectorAll('.tln__node'));
+    if (railLine) gsap.fromTo(railLine, { scaleY: 0 }, {
+      scaleY: 1, ease: 'none', transformOrigin: 'top center',
+      scrollTrigger: { trigger: tl, start: 'top 62%', end: 'bottom 72%', scrub: 0.5 }
+    });
+    nodes.forEach(function (n) {
+      ScrollTrigger.create({
+        trigger: n, start: 'top 68%',
+        onEnter: function () { n.classList.add('is-lit'); if (hasST) window.ScrollTrigger.refresh; }
+      });
+    });
+  })();
+
+  /* ---------- 7f. Section rail: desktop side dots, scroll-spy + click jump ---------- */
+  (function () {
+    if (noMotion) return;
+    var sections = Array.prototype.slice.call(doc.querySelectorAll('main section[id], main div[id="top"]'));
+    if (sections.length < 3 || innerWidth < 1024) return;
+    if (doc.getElementById('srail')) return;
+    var nav = doc.createElement('nav');
+    nav.className = 'srail'; nav.id = 'srail'; nav.setAttribute('aria-label', 'Sections');
+    sections.forEach(function (s) {
+      var a = doc.createElement('a');
+      a.className = 'srail__dot'; a.href = '#' + s.id;
+      var b = doc.createElement('span'); b.className = 'srail__tip';
+      b.textContent = (s.querySelector('.sec-head__label, .about__title, h2, h1') || s).textContent.trim().split(/[.,\n]/)[0].slice(0, 26);
+      a.appendChild(doc.createElement('i')); a.appendChild(b);
+      a.addEventListener('click', function (ev) {
+        ev.preventDefault();
+        if (lenis) lenis.scrollTo('#' + s.id, { duration: 1.1 });
+        else s.scrollIntoView({ behavior: 'smooth' });
+      });
+      nav.appendChild(a);
+    });
+    doc.body.appendChild(nav);
+    var dots = Array.prototype.slice.call(nav.querySelectorAll('.srail__dot'));
+    ScrollTrigger.create({
+      trigger: 'main', start: 'top center', end: 'bottom center', scrub: true,
+      onUpdate: function () {}
+    });
+    sections.forEach(function (s, i) {
+      ScrollTrigger.create({
+        trigger: s, start: 'top center', end: 'bottom center',
+        onToggle: function (self) { if (self.isActive) dots.forEach(function (d, j) { d.classList.toggle('is-active', j === i); }); }
+      });
+    });
+  })();
+
+  /* ---------- 7g. Card grids: measured arrival choreography ---------- */
+  (function () {
+    if (!hasST || noMotion) return;
+    doc.querySelectorAll('[data-reveal-group]').forEach(function (group) {
+      if (group.dataset.chorBound) return;
+      group.dataset.chorBound = '1';
+      var kids = Array.from(group.querySelectorAll('[data-reveal]'));
+      kids.forEach(function (k, i) {
+        var r = k.getBoundingClientRect();
+        if (r.top < innerHeight) return; // above-fold stays engine-managed
+        gsap.fromTo(k, { y: 30, scale: 0.985 }, {
+          y: 0, scale: 1, opacity: 1, duration: 0.7, ease: 'power3.out',
+          scrollTrigger: { trigger: k, start: 'top 88%' },
+          delay: (i % 3) * 0.06
+        });
+      });
+    });
+  })();
+
+  /* ---------- 7h. Portraits: bounded clip reveal + gentle depth drift ---------- */
+  (function () {
+    if (!hasST || noMotion) return;
+    Array.prototype.slice.call(doc.querySelectorAll('.hero__figure, .about__photo, .phero__photo')).forEach(function (fig) {
+      if (fig.dataset.photoBound) return;
+      fig.dataset.photoBound = '1';
+      var img = fig.querySelector('img');
+      if (!img) return;
+      gsap.fromTo(fig,
+        { clipPath: 'inset(12% 12% 12% 12% round 18px)', opacity: 0.4 },
+        { clipPath: 'inset(0% 0% 0% 0% round 18px)', opacity: 1, duration: 1.2, ease: 'power3.out',
+          scrollTrigger: { trigger: fig, start: 'top 86%', once: true } });
+      gsap.fromTo(img, { y: -10, scale: 1.06 }, {
+        y: 10, scale: 1.0, ease: 'none',
+        scrollTrigger: { trigger: fig, start: 'top bottom', end: 'bottom top', scrub: true }
+      });
+    });
+  })();
+
   /* ---------- 8. Feedback: stars + submit + wall ---------- */
   (function () {
     var form = doc.getElementById('fbForm');
