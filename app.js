@@ -106,6 +106,7 @@
     }
 
     doc.querySelectorAll('[data-reveal-group]').forEach(function (group) {
+      if (group.hasAttribute('data-card-timeline')) return; // exact-spec engine owns these
       var kids = Array.from(group.querySelectorAll('[data-reveal]'));
       if (!kids.length) return;
       var tl = gsap.timeline({ scrollTrigger: { trigger: group, start: 'top 84%' } });
@@ -113,7 +114,7 @@
       tl.to(kids, { opacity: 1, y: 0, duration: 0.8, stagger: 0.07, ease: 'power3.out' });
     });
 
-    els.filter(function (el) { return !el.closest('[data-reveal-group]'); })
+    els.filter(function (el) { return !el.closest('[data-reveal-group]') && !el.closest('[data-card-timeline]'); })
       .forEach(function (el) {
         var r = el.getBoundingClientRect();
         if (r.top < window.innerHeight && r.bottom > 0) {
@@ -706,6 +707,42 @@
         burger.classList.remove('is-open');
         burger.setAttribute('aria-expanded', 'false');
       }
+    });
+  })();
+
+  /* ---------- 10. Card timeline — motion brief spec: cards 280ms / title 220ms / meta 160ms / stagger 60ms ---------- */
+  (function () {
+    if (!hasST || noMotion) return;
+    var harness = /harness=cards/.test(location.search);
+    var SPEC = { card: 0.28, title: 0.22, meta: 0.16, stagger: 0.06 };
+    window.__ctl = []; window.__ctlSpec = SPEC;
+    var grids = Array.prototype.slice.call(doc.querySelectorAll('[data-card-timeline]'));
+    grids.forEach(function (grid) {
+      if (grid.dataset.ctlBound) return;
+      grid.dataset.ctlBound = '1';
+      var cards = Array.prototype.slice.call(grid.querySelectorAll('.mcard, .toolcard, .svc-row'));
+      if (!cards.length) return;
+      cards.forEach(function (card, ci) {
+        if (card.dataset.ctlCardBound) return;
+        card.dataset.ctlCardBound = '1';
+        card.removeAttribute('data-reveal');
+        var title = card.querySelector('.mcard__title, .toolcard__title, .svc-row__title');
+        var meta = card.querySelector('.mcard__meta, .toolcard__meta, .svc-row__desc');
+        var parts = [card].concat(title ? [title] : [], meta ? [meta] : []);
+        parts.forEach(function (el) { gsap.set(el, { opacity: 0, y: 14 }); });
+        var t0 = ci * SPEC.stagger;
+        var tl = gsap.timeline({
+          paused: harness,
+          scrollTrigger: harness ? null : { trigger: card, start: 'top 88%', once: true }
+        });
+        tl.to(card, { opacity: 1, y: 0, duration: SPEC.card, ease: 'power3.out' }, t0);
+        tl.to(title, { opacity: 1, y: 0, duration: SPEC.title, ease: 'power2.out' }, t0 + SPEC.stagger);
+        if (meta) tl.to(meta, { opacity: 1, y: 0, duration: SPEC.meta, ease: 'power2.out' }, t0 + SPEC.stagger * 2);
+        var twCard = tl.getChildren(false, true, false).filter(function (t) { return t.targets().indexOf(card) > -1; })[0];
+        var twTitle = title ? tl.getChildren(false, true, false).filter(function (t) { return t.targets().indexOf(title) > -1; })[0] : null;
+        var twMeta = meta ? tl.getChildren(false, true, false).filter(function (t) { return t.targets().indexOf(meta) > -1; })[0] : null;
+        window.__ctl.push({ ci: ci, card: card, tl: tl, tw: { card: twCard, title: twTitle, meta: twMeta }, starts: { card: t0, title: t0 + SPEC.stagger, meta: meta ? t0 + SPEC.stagger * 2 : null } });
+      });
     });
   })();
 
