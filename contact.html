@@ -158,7 +158,64 @@
     </section>
   </main>
 
-  <footer class="pagefoot">
+  
+    <!-- 02 SUBSCRIBE -->
+    <section class="sec" id="subscribe">
+      <div class="wrap">
+        <div class="sec-head" data-reveal>
+          <span class="sec-head__n">02</span>
+          <span class="sec-head__label">The journal</span>
+          <span class="sec-head__rule"></span>
+        </div>
+        <div class="subbox" data-reveal>
+          <h3 class="subbox__title">New essays, straight to your inbox</h3>
+          <p class="subbox__sub">One email each time a new article publishes, with the link straight to the full piece. Free for now.</p>
+          <form class="subform" id="subForm" novalidate>
+            <input class="subform__email" id="subEmail" type="email" name="email" required placeholder="you@company.com" autocomplete="email">
+            <button class="btn btn--solid subform__btn" type="submit" id="subBtn" data-magnet>Notify Me</button>
+          </form>
+          <p class="subform__note">One email per article &middot; no spam &middot; unsubscribe anytime</p>
+          <p class="subform__state" id="subState" role="status"></p>
+        </div>
+      </div>
+    </section>
+
+    <script>
+    (function () {
+      var form = document.getElementById('subForm');
+      if (!form) return;
+      var btn = document.getElementById('subBtn'), st = document.getElementById('subState'), em = document.getElementById('subEmail');
+      form.addEventListener('submit', function (e) {
+        e.preventDefault();
+        var email = (em.value || '').trim();
+        if (!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email)) { st.textContent = 'That address does not look right. Check and try again.'; st.className = 'subform__state is-error'; return; }
+        btn.disabled = true; st.textContent = 'Adding you to the journal list...'; st.className = 'subform__state';
+        fetch('https://formsubmit.co/ajax/drukaye@gmail.com', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+          body: JSON.stringify({ _subject: 'JOURNAL SUBSCRIBER: ' + email, email: email, source: 'doseofhse.com/subscribe', _captcha: 'false' })
+        }).then(function (r) { if (!r.ok) throw new Error('relay'); return r.json(); })
+          .then(function () { st.textContent = 'You are on the list. The next article lands in your inbox.'; st.className = 'subform__state is-ok'; form.reset(); })
+          .catch(function () { btn.disabled = false; st.innerHTML = 'Could not add you right now. Email <a href="mailto:drukaye@gmail.com?subject=Subscribe%20me%20to%20the%20journal">drukaye@gmail.com</a> and you are in.'; st.className = 'subform__state is-error'; });
+      });
+    })();
+    </script>
+
+    <style>
+      .subbox { border: 1px solid var(--line); border-radius: 14px; padding: 2rem 2.2rem 1.6rem; background: var(--panel); max-width: 760px; }
+      .subbox__title { font-family: var(--font-display); font-weight: 600; font-size: 1.6rem; margin: 0 0 0.5rem; color: #f5f0eb; }
+      .subbox__sub { color: var(--ink-2, #bfb3a0); margin: 0 0 1.4rem; line-height: 1.6; }
+      .subform { display: flex; gap: 0.8rem; flex-wrap: wrap; }
+      .subform__email { flex: 1 1 260px; background: var(--ink-050); border: 1px solid var(--line); border-radius: 999px; padding: 0.9rem 1.3rem; color: #f5f0eb; font-size: 1rem; outline: none; transition: border-color .15s ease; }
+      .subform__email:focus { border-color: rgba(199,158,105,0.6); }
+      .subform__note { font-family: var(--mono, ui-monospace, monospace); font-size: 0.68rem; letter-spacing: 0.12em; color: var(--ink-3, #9c907c); margin: 1rem 0 0; }
+      .subform__state { margin: 0.7rem 0 0; font-size: 0.95rem; min-height: 1.4em; }
+      .subform__state.is-ok { color: #8fa68e; }
+      .subform__state.is-error { color: #c98a68; }
+      .subform__state a { color: #c79e69; }
+    </style>
+
+<footer class="pagefoot">
     <div class="wrap pagefoot__in">
       <div class="pillars" aria-hidden="true"><div class="pillars__track"><span>Predictive safety</span><span>HSE governance</span><span>Applied AI</span><span>Risk intelligence</span><span>Predictive safety</span><span>HSE governance</span><span>Applied AI</span><span>Risk intelligence</span><span>Predictive safety</span><span>HSE governance</span><span>Applied AI</span><span>Risk intelligence</span></div></div>        <span>© 2026 Dr. Nadeem Irfan Ukaye · Abu Dhabi, UAE</span>
       <div class="pagefoot__links">
