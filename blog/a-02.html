@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Insights — Dr. Nadeem Ukaye | HSE, AI &amp; Safety Leadership</title>
+  <meta name="description" content="Writing on predictive safety, AI-driven governance and building cultures where operational excellence and human wellbeing coexist.">
+  <meta name="theme-color" content="#14110c">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400..800&family=Instrument+Serif:ital@0;1&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400..800&family=Instrument+Serif:ital@0;1&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap">
+  <link rel="stylesheet" href="/styles.css">
+  <link rel="icon" href="/profile.jpg" type="image/jpeg">
+<style>
+    .blog-hero { padding: 9rem 0 3.4rem; }
+    .blog-hero__eyebrow { font-family: var(--mono, ui-monospace, monospace); font-size: 0.7rem; letter-spacing: 0.34em; color: var(--sage); text-transform: uppercase; }
+    .blog-hero__title { font-family: var(--font-display); font-size: clamp(2.4rem, 6vw, 4.2rem); font-weight: 600; letter-spacing: -0.02em; line-height: 1.04; margin: 1rem 0 0.9rem; }
+    .blog-hero__sub { color: var(--ink-2, #bfb3a0); max-width: 640px; line-height: 1.6; }
+    .blog-list { display: grid; gap: 1.1rem; padding: 1rem 0 4rem; }
+    .blog-card { display: grid; grid-template-columns: 70px 1fr auto; gap: 1.4rem; align-items: baseline; border: 1px solid var(--line); border-radius: 14px; padding: 1.35rem 1.5rem; background: var(--panel); text-decoration: none; transition: border-color .18s ease, transform .18s ease; }
+    .blog-card:hover { border-color: rgba(199,158,105,0.55); transform: translateY(-2px); }
+    .blog-card__n { font-family: var(--mono, ui-monospace, monospace); font-size: 0.72rem; color: var(--accent); letter-spacing: 0.14em; }
+    .blog-card__t { font-family: var(--font-display); font-weight: 600; font-size: 1.28rem; color: var(--ink-1, #f5f0eb); margin: 0 0 0.35rem; }
+    .blog-card__d { color: var(--ink-2, #bfb3a0); font-size: 0.94rem; line-height: 1.55; max-width: 760px; }
+    .blog-card__meta { font-family: var(--mono, ui-monospace, monospace); font-size: 0.68rem; letter-spacing: 0.12em; color: var(--ink-3, #9c907c); text-align: right; line-height: 1.8; }
+    .art { max-width: 720px; margin: 0 auto; padding: 8.5rem 24px 5rem; }
+    .art__back { font-family: var(--mono, ui-monospace, monospace); font-size: 0.72rem; letter-spacing: 0.12em; color: var(--sage); text-decoration: none; border: 1px solid var(--line); border-radius: 999px; padding: 0.45rem 0.95rem; display: inline-block; margin-bottom: 2.2rem; transition: border-color .15s ease; }
+    .art__back:hover { border-color: var(--accent); }
+    .art__tag { font-family: var(--mono, ui-monospace, monospace); font-size: 0.68rem; letter-spacing: 0.2em; color: var(--accent); text-transform: uppercase; }
+    .art__title { font-family: var(--font-display); font-size: clamp(2rem, 5vw, 3.1rem); font-weight: 600; line-height: 1.08; letter-spacing: -0.02em; margin: 0.8rem 0 1rem; }
+    .art__meta { font-family: var(--mono, ui-monospace, monospace); font-size: 0.72rem; letter-spacing: 0.1em; color: var(--ink-3, #9c907c); margin-bottom: 2.6rem; }
+    .art__body p { color: #d8cdba; line-height: 1.82; font-size: 1.04rem; margin: 0 0 1.5rem; }
+    .art__body p:first-child { color: #efe7d9; }
+    .art__byline { display: flex; align-items: center; gap: 0.8rem; border-top: 1px dashed var(--line); padding-top: 2rem; margin-top: 1rem; }
+    .art__byline b { color: #f5f0eb; }
+    .art__byline span { color: var(--ink-3, #9c907c); font-size: 0.85rem; }
+    @media (max-width: 700px) { .blog-card { grid-template-columns: 1fr; gap: 0.5rem; } .blog-card__meta { text-align: left; } }
+  </style>
+</head>
+<body>
+  <div class="grain" aria-hidden="true"></div>
+  <div class="progress" aria-hidden="true"><div class="progress__bar" id="pbar"></div></div>
+
+  <header class="hdr" id="hdr">
+    <div class="wrap hdr__in">
+      <a href="/index.html" class="hdr__brand">Dr. Nadeem <em>Ukaye</em></a>
+      <nav class="hdr__nav" aria-label="Main">
+        <a href="/about.html">About</a>
+        <a href="/work.html">Work</a>
+        <a href="/blog.html">Blog</a>
+        <a href="/insights.html" >Insights</a>
+        <a href="/free-products.html">Free Products</a>
+        <a href="/contact.html">Contact</a>
+      
+        
+      </nav>
+      <a href="https://cal.com/nadeem-ukaye-z2sjo1" class="hdr__cta" data-magnet data-shine>Book a Call</a>
+      <button class="hdr__burger" id="navBurger" aria-label="Open menu" aria-expanded="false" aria-controls="mobileNav">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+  <main>
+      <article class="art">
+        <a class="art__back" href="/blog.html">&larr; ALL ARTICLES</a>
+        <p class="art__tag">Leadership</p>
+        <h1 class="art__title">The Physician&#x27;s Lens: Why Medical Training Makes Better Safety Leaders</h1>
+        <p class="art__meta">DR NADEEM UKAYE · 9 MIN · DOSEOFHSE.COM · PUBLISHED 2026-11-07</p>
+        <div class="art__body">
+        <p>I trained as a physician. I studied medicine through a bachelor&#x27;s and a doctorate, and I spent close to a decade in private practice before industry found me. People often ask what medicine has to do with running health, safety and environment across an industrial region. In my experience, they are the same discipline wearing different uniforms.</p>
+        <p>The core is diagnosis. In a clinic you learn to look at a whole person and reason from signs to cause: what changed, when it changed, and what else could explain it. On a facility with a rising incident trend, you do the same thing. The report says a hand injury. The real diagnosis may sit weeks earlier, in a rushed schedule, a missing guard that was logged and not fixed, or a supervisor stretched across three tasks. Treating the hand and missing the diagnosis is how organisations injure people twice.</p>
+        <p>Emergency training matters even more. Medicine teaches you to make good decisions with incomplete information, under pressure, with people watching. An industrial emergency response room feels familiar very quickly. Triage, escalation, clear roles, calm communication: I have sat on both sides, and the habits carry over exactly.</p>
+        <p>There is a softer skill that turns out to be the biggest. Patient care teaches empathy, and empathy is a safety control. In practice, you learn that people hide symptoms when they fear consequences. In industry, people under-report near misses for the same reason. A leader who punishes the messenger gets a quiet workforce and a loud month when something finally goes wrong. A leader who is genuinely interested in people, the way a physician is trained to be, gets the early calls, and early calls are the cheapest safety instrument that exists.</p>
+        <p>My record carries this. I moved from clinical work into safety leadership, and the teams I lead now cover facilities across Middle East, Africa, Caspian and India. Injury frequency measures fell to four fifths lower and lost time measures to nothing recorded in recent years at our best, which I attribute far more to care culture than to paperwork.</p>
+        <p>None of this means doctors make automatic safety leaders. It means training that puts human life first, that demands diagnosis before treatment, and that practises decisions under pressure, produces leaders this field needs. I would hire an empathic clinician who is willing to learn operations over a box-ticker every time.</p>
+        <p>If you came to safety from clinical work, do not apologise for it in an interview. It is your sharpest instrument.</p>
+        </div>
+        <div class="art__byline"><b>Dr. Nadeem Ukaye</b><span>Regional HSE Leader · Physician · AI Strategist — more essays at doseofhse.com</span></div>
+      </article>
+    </main>
+  <footer class="pagefoot">
+    <div class="wrap pagefoot__in">
+      <div class="pillars" aria-hidden="true"><div class="pillars__track"><span>Predictive safety</span><span>HSE governance</span><span>Applied AI</span><span>Risk intelligence</span><span>Predictive safety</span><span>HSE governance</span><span>Applied AI</span><span>Risk intelligence</span><span>Predictive safety</span><span>HSE governance</span><span>Applied AI</span><span>Risk intelligence</span></div></div>        <span>© 2026 Dr. Nadeem Irfan Ukaye · Abu Dhabi, UAE</span>
+      <div class="pagefoot__links">
+        <a href="https://www.linkedin.com/in/doseofhse/" target="_blank" rel="noopener">LinkedIn</a>
+        <a href="mailto:drukaye@gmail.com">Email</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrollTrigger.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/lenis@1.1.18/dist/lenis.min.js"></script>
+  <script src="/app.js"></script>
+</body>
+</html>

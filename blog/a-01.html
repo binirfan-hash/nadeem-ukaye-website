@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Insights — Dr. Nadeem Ukaye | HSE, AI &amp; Safety Leadership</title>
+  <meta name="description" content="Writing on predictive safety, AI-driven governance and building cultures where operational excellence and human wellbeing coexist.">
+  <meta name="theme-color" content="#14110c">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400..800&family=Instrument+Serif:ital@0;1&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400..800&family=Instrument+Serif:ital@0;1&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap">
+  <link rel="stylesheet" href="/styles.css">
+  <link rel="icon" href="/profile.jpg" type="image/jpeg">
+<style>
+    .blog-hero { padding: 9rem 0 3.4rem; }
+    .blog-hero__eyebrow { font-family: var(--mono, ui-monospace, monospace); font-size: 0.7rem; letter-spacing: 0.34em; color: var(--sage); text-transform: uppercase; }
+    .blog-hero__title { font-family: var(--font-display); font-size: clamp(2.4rem, 6vw, 4.2rem); font-weight: 600; letter-spacing: -0.02em; line-height: 1.04; margin: 1rem 0 0.9rem; }
+    .blog-hero__sub { color: var(--ink-2, #bfb3a0); max-width: 640px; line-height: 1.6; }
+    .blog-list { display: grid; gap: 1.1rem; padding: 1rem 0 4rem; }
+    .blog-card { display: grid; grid-template-columns: 70px 1fr auto; gap: 1.4rem; align-items: baseline; border: 1px solid var(--line); border-radius: 14px; padding: 1.35rem 1.5rem; background: var(--panel); text-decoration: none; transition: border-color .18s ease, transform .18s ease; }
+    .blog-card:hover { border-color: rgba(199,158,105,0.55); transform: translateY(-2px); }
+    .blog-card__n { font-family: var(--mono, ui-monospace, monospace); font-size: 0.72rem; color: var(--accent); letter-spacing: 0.14em; }
+    .blog-card__t { font-family: var(--font-display); font-weight: 600; font-size: 1.28rem; color: var(--ink-1, #f5f0eb); margin: 0 0 0.35rem; }
+    .blog-card__d { color: var(--ink-2, #bfb3a0); font-size: 0.94rem; line-height: 1.55; max-width: 760px; }
+    .blog-card__meta { font-family: var(--mono, ui-monospace, monospace); font-size: 0.68rem; letter-spacing: 0.12em; color: var(--ink-3, #9c907c); text-align: right; line-height: 1.8; }
+    .art { max-width: 720px; margin: 0 auto; padding: 8.5rem 24px 5rem; }
+    .art__back { font-family: var(--mono, ui-monospace, monospace); font-size: 0.72rem; letter-spacing: 0.12em; color: var(--sage); text-decoration: none; border: 1px solid var(--line); border-radius: 999px; padding: 0.45rem 0.95rem; display: inline-block; margin-bottom: 2.2rem; transition: border-color .15s ease; }
+    .art__back:hover { border-color: var(--accent); }
+    .art__tag { font-family: var(--mono, ui-monospace, monospace); font-size: 0.68rem; letter-spacing: 0.2em; color: var(--accent); text-transform: uppercase; }
+    .art__title { font-family: var(--font-display); font-size: clamp(2rem, 5vw, 3.1rem); font-weight: 600; line-height: 1.08; letter-spacing: -0.02em; margin: 0.8rem 0 1rem; }
+    .art__meta { font-family: var(--mono, ui-monospace, monospace); font-size: 0.72rem; letter-spacing: 0.1em; color: var(--ink-3, #9c907c); margin-bottom: 2.6rem; }
+    .art__body p { color: #d8cdba; line-height: 1.82; font-size: 1.04rem; margin: 0 0 1.5rem; }
+    .art__body p:first-child { color: #efe7d9; }
+    .art__byline { display: flex; align-items: center; gap: 0.8rem; border-top: 1px dashed var(--line); padding-top: 2rem; margin-top: 1rem; }
+    .art__byline b { color: #f5f0eb; }
+    .art__byline span { color: var(--ink-3, #9c907c); font-size: 0.85rem; }
+    @media (max-width: 700px) { .blog-card { grid-template-columns: 1fr; gap: 0.5rem; } .blog-card__meta { text-align: left; } }
+  </style>
+</head>
+<body>
+  <div class="grain" aria-hidden="true"></div>
+  <div class="progress" aria-hidden="true"><div class="progress__bar" id="pbar"></div></div>
+
+  <header class="hdr" id="hdr">
+    <div class="wrap hdr__in">
+      <a href="/index.html" class="hdr__brand">Dr. Nadeem <em>Ukaye</em></a>
+      <nav class="hdr__nav" aria-label="Main">
+        <a href="/about.html">About</a>
+        <a href="/work.html">Work</a>
+        <a href="/blog.html">Blog</a>
+        <a href="/insights.html" >Insights</a>
+        <a href="/free-products.html">Free Products</a>
+        <a href="/contact.html">Contact</a>
+      
+        
+      </nav>
+      <a href="https://cal.com/nadeem-ukaye-z2sjo1" class="hdr__cta" data-magnet data-shine>Book a Call</a>
+      <button class="hdr__burger" id="navBurger" aria-label="Open menu" aria-expanded="false" aria-controls="mobileNav">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+  <main>
+      <article class="art">
+        <a class="art__back" href="/blog.html">&larr; ALL ARTICLES</a>
+        <p class="art__tag">Predictive Safety</p>
+        <h1 class="art__title">From Reactive to Predictive: How AI is Reshaping HSE Governance</h1>
+        <p class="art__meta">DR NADEEM UKAYE · 12 MIN · DOSEOFHSE.COM · PUBLISHED 2026-11-07</p>
+        <div class="art__body">
+        <p>For most of my career, safety governance has looked backwards. We recorded incidents, investigated them carefully, filed the lessons and hoped the same pattern never returned. That system works, and I respect it. It is also slow, and it pays with injuries before it learns.</p>
+        <p>Machine learning changes the starting point. Instead of beginning with an injury, we can begin with a pattern: a cluster of near misses on one production line, a maintenance backlog moving in the wrong direction, permit approvals clustering at risky hours, environmental readings drifting across days. None of these alone is an incident. Together, they are a warning, and a model is far better than a tired human at noticing that thirty weak signals have started moving in the same direction.</p>
+        <p>I have worked in health, safety and environment long enough to be sceptical of any tooling that promises to remove judgement. AI does not replace the HSE manager. Three things change, and they change how governance itself is governed.</p>
+        <p>First, data quality becomes a safety-critical system. Every HSE team already collects data. Very few trust it. If incident classification is inconsistent between sites, if near misses are reported in free text and buried in spreadsheets, no model can help. Before predicting anything, governance has to set standards for how data is captured, cleaned and owned. In my view this is the single biggest barrier, and it is a management problem, not a technology problem.</p>
+        <p>Second, the human stays in the loop. A model can rank a list of sites by rising risk, but it cannot walk the deck, talk to the crew, or feel the morale change after a shutdown. I want the tool to tell me where to look, and I still go and look. Accountability must stay with a named leader. When a prediction and a decision are connected, someone must own the decision, exactly as they own a permit today.</p>
+        <p>Third, governance has to learn to audit its own tools. We audit contractors, permit systems and emergency drills. We will have to audit models: what data trained them, when they were refreshed, where their blind spots are. A predictive system that nobody can explain is just a new way of being lucky.</p>
+        <p>What has this looked like in practice for me? I lead health, safety and environment for a global industrial group across the Middle East, Africa, the Caspian and India. Our systems already cut recorded incident measures hard over years of disciplined work, with injury frequency measures falling four fifths at their best before this. The honest question at that point is not how to report the decline. It is what the next reduction comes from, when the easy causes are closed. That is where prediction earns its place: leading indicators, read early, by a leader who already knows the ground.</p>
+        <p>My position is simple. Health and safety needs this working now, and the people best placed to build it are the domain experts who understand the hazards, not only the data scientists. Learning without implementation is just words in a textbook. If you work in HSE, start with one dataset you already have, one question you already ask every Monday, and let a model help you ask it faster.</p>
+        <p>The teams that move first will not replace their governance. They will sharpen it.</p>
+        </div>
+        <div class="art__byline"><b>Dr. Nadeem Ukaye</b><span>Regional HSE Leader · Physician · AI Strategist — more essays at doseofhse.com</span></div>
+      </article>
+    </main>
+  <footer class="pagefoot">
+    <div class="wrap pagefoot__in">
+      <div class="pillars" aria-hidden="true"><div class="pillars__track"><span>Predictive safety</span><span>HSE governance</span><span>Applied AI</span><span>Risk intelligence</span><span>Predictive safety</span><span>HSE governance</span><span>Applied AI</span><span>Risk intelligence</span><span>Predictive safety</span><span>HSE governance</span><span>Applied AI</span><span>Risk intelligence</span></div></div>        <span>© 2026 Dr. Nadeem Irfan Ukaye · Abu Dhabi, UAE</span>
+      <div class="pagefoot__links">
+        <a href="https://www.linkedin.com/in/doseofhse/" target="_blank" rel="noopener">LinkedIn</a>
+        <a href="mailto:drukaye@gmail.com">Email</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrollTrigger.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/lenis@1.1.18/dist/lenis.min.js"></script>
+  <script src="/app.js"></script>
+</body>
+</html>

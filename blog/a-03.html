@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Insights — Dr. Nadeem Ukaye | HSE, AI &amp; Safety Leadership</title>
+  <meta name="description" content="Writing on predictive safety, AI-driven governance and building cultures where operational excellence and human wellbeing coexist.">
+  <meta name="theme-color" content="#14110c">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400..800&family=Instrument+Serif:ital@0;1&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400..800&family=Instrument+Serif:ital@0;1&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap">
+  <link rel="stylesheet" href="/styles.css">
+  <link rel="icon" href="/profile.jpg" type="image/jpeg">
+<style>
+    .blog-hero { padding: 9rem 0 3.4rem; }
+    .blog-hero__eyebrow { font-family: var(--mono, ui-monospace, monospace); font-size: 0.7rem; letter-spacing: 0.34em; color: var(--sage); text-transform: uppercase; }
+    .blog-hero__title { font-family: var(--font-display); font-size: clamp(2.4rem, 6vw, 4.2rem); font-weight: 600; letter-spacing: -0.02em; line-height: 1.04; margin: 1rem 0 0.9rem; }
+    .blog-hero__sub { color: var(--ink-2, #bfb3a0); max-width: 640px; line-height: 1.6; }
+    .blog-list { display: grid; gap: 1.1rem; padding: 1rem 0 4rem; }
+    .blog-card { display: grid; grid-template-columns: 70px 1fr auto; gap: 1.4rem; align-items: baseline; border: 1px solid var(--line); border-radius: 14px; padding: 1.35rem 1.5rem; background: var(--panel); text-decoration: none; transition: border-color .18s ease, transform .18s ease; }
+    .blog-card:hover { border-color: rgba(199,158,105,0.55); transform: translateY(-2px); }
+    .blog-card__n { font-family: var(--mono, ui-monospace, monospace); font-size: 0.72rem; color: var(--accent); letter-spacing: 0.14em; }
+    .blog-card__t { font-family: var(--font-display); font-weight: 600; font-size: 1.28rem; color: var(--ink-1, #f5f0eb); margin: 0 0 0.35rem; }
+    .blog-card__d { color: var(--ink-2, #bfb3a0); font-size: 0.94rem; line-height: 1.55; max-width: 760px; }
+    .blog-card__meta { font-family: var(--mono, ui-monospace, monospace); font-size: 0.68rem; letter-spacing: 0.12em; color: var(--ink-3, #9c907c); text-align: right; line-height: 1.8; }
+    .art { max-width: 720px; margin: 0 auto; padding: 8.5rem 24px 5rem; }
+    .art__back { font-family: var(--mono, ui-monospace, monospace); font-size: 0.72rem; letter-spacing: 0.12em; color: var(--sage); text-decoration: none; border: 1px solid var(--line); border-radius: 999px; padding: 0.45rem 0.95rem; display: inline-block; margin-bottom: 2.2rem; transition: border-color .15s ease; }
+    .art__back:hover { border-color: var(--accent); }
+    .art__tag { font-family: var(--mono, ui-monospace, monospace); font-size: 0.68rem; letter-spacing: 0.2em; color: var(--accent); text-transform: uppercase; }
+    .art__title { font-family: var(--font-display); font-size: clamp(2rem, 5vw, 3.1rem); font-weight: 600; line-height: 1.08; letter-spacing: -0.02em; margin: 0.8rem 0 1rem; }
+    .art__meta { font-family: var(--mono, ui-monospace, monospace); font-size: 0.72rem; letter-spacing: 0.1em; color: var(--ink-3, #9c907c); margin-bottom: 2.6rem; }
+    .art__body p { color: #d8cdba; line-height: 1.82; font-size: 1.04rem; margin: 0 0 1.5rem; }
+    .art__body p:first-child { color: #efe7d9; }
+    .art__byline { display: flex; align-items: center; gap: 0.8rem; border-top: 1px dashed var(--line); padding-top: 2rem; margin-top: 1rem; }
+    .art__byline b { color: #f5f0eb; }
+    .art__byline span { color: var(--ink-3, #9c907c); font-size: 0.85rem; }
+    @media (max-width: 700px) { .blog-card { grid-template-columns: 1fr; gap: 0.5rem; } .blog-card__meta { text-align: left; } }
+  </style>
+</head>
+<body>
+  <div class="grain" aria-hidden="true"></div>
+  <div class="progress" aria-hidden="true"><div class="progress__bar" id="pbar"></div></div>
+
+  <header class="hdr" id="hdr">
+    <div class="wrap hdr__in">
+      <a href="/index.html" class="hdr__brand">Dr. Nadeem <em>Ukaye</em></a>
+      <nav class="hdr__nav" aria-label="Main">
+        <a href="/about.html">About</a>
+        <a href="/work.html">Work</a>
+        <a href="/blog.html">Blog</a>
+        <a href="/insights.html" >Insights</a>
+        <a href="/free-products.html">Free Products</a>
+        <a href="/contact.html">Contact</a>
+      
+        
+      </nav>
+      <a href="https://cal.com/nadeem-ukaye-z2sjo1" class="hdr__cta" data-magnet data-shine>Book a Call</a>
+      <button class="hdr__burger" id="navBurger" aria-label="Open menu" aria-expanded="false" aria-controls="mobileNav">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+  <main>
+      <article class="art">
+        <a class="art__back" href="/blog.html">&larr; ALL ARTICLES</a>
+        <p class="art__tag">Culture</p>
+        <h1 class="art__title">Beyond Compliance: Building a Safety Culture in the AI Era</h1>
+        <p class="art__meta">DR NADEEM UKAYE · 10 MIN · DOSEOFHSE.COM · PUBLISHED 2026-11-07</p>
+        <div class="art__body">
+        <p>I once watched a supervisor tear into his team for improper gloves while a heavy load moved overhead on cranes. Emails went up the chain within minutes, photographs attached, names implicated, consequences demanded. A couple of minutes later, that same supervisor walked under a suspended load, no helmet in sight, bare-handed.</p>
+        <p>The team sent those photographs up too. We laughed, then we did not, because the lesson is not funny. A supervisor&#x27;s first duty is to take care of himself, and then take care of his team. Judging others for what you are doing at the same instant is not leadership, it is theatre. That single afternoon taught me more about safety culture than any standard ever has.</p>
+        <p>Compliance is the floor. Every serious operation I work with has procedures, permits, audits and training records, and I have spent my career inside that machinery. What compliance cannot do on its own is decide what happens when nobody is watching, which is when most of the real exposure lives. Culture is what a person does with a checklist in their hand at the end of a long shift.</p>
+        <p>Now the AI era is adding a new layer, and culture is the reason it will succeed or fail. Intelligent systems can do real work here: computer vision that flags a missing barrier before a job starts, permit workflows that refuse a stacking of risky activities, models that read weeks of near misses and point at the one line where fatigue has started to cost people. I use this direction in my own practice, building and applying analytics and automation on top of ordinary safety systems.</p>
+        <p>Two cautions from where I sit. First, if workers experience these tools as surveillance that reports them, culture gets worse, not better, and the cameras will learn nothing useful from people hiding from them. The purpose of these systems, told to the workforce in plain words, has to be protection, not policing. Second, automation must embed human judgement, not replace it. A model can rank risk. A leader still decides, and a culture is exactly the record of thousands of those small decisions under pressure.</p>
+        <p>Three things move an organisation beyond compliance, and none of them is a poster. Leaders visibly follow their own rules, every time, especially when in a hurry. Bad news travels upward fast, and the messenger is thanked in public. And near misses are treated as gifts, read carefully, because they are free tuition.</p>
+        <p>I would say we are entering the best period this profession has ever had for building that culture. The tools can finally carry the boring weight: reading, cross-checking, reminding, surfacing. That frees humans to do the part machines cannot, which is to model the standard in front of the team.</p>
+        <p>Leaders go first. It has always been true. The technology just makes it visible.</p>
+        </div>
+        <div class="art__byline"><b>Dr. Nadeem Ukaye</b><span>Regional HSE Leader · Physician · AI Strategist — more essays at doseofhse.com</span></div>
+      </article>
+    </main>
+  <footer class="pagefoot">
+    <div class="wrap pagefoot__in">
+      <div class="pillars" aria-hidden="true"><div class="pillars__track"><span>Predictive safety</span><span>HSE governance</span><span>Applied AI</span><span>Risk intelligence</span><span>Predictive safety</span><span>HSE governance</span><span>Applied AI</span><span>Risk intelligence</span><span>Predictive safety</span><span>HSE governance</span><span>Applied AI</span><span>Risk intelligence</span></div></div>        <span>© 2026 Dr. Nadeem Irfan Ukaye · Abu Dhabi, UAE</span>
+      <div class="pagefoot__links">
+        <a href="https://www.linkedin.com/in/doseofhse/" target="_blank" rel="noopener">LinkedIn</a>
+        <a href="mailto:drukaye@gmail.com">Email</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrollTrigger.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/lenis@1.1.18/dist/lenis.min.js"></script>
+  <script src="/app.js"></script>
+</body>
+</html>
