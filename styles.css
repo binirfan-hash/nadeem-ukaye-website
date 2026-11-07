@@ -614,6 +614,7 @@ html.has-cursor input, html.has-cursor textarea { cursor: text; }
   letter-spacing: -0.02em;
   text-wrap: balance;
 }
+.roll__word { display: inline-block; white-space: nowrap; }
 .cta__title em { font-family: var(--font-accent); font-style: italic; color: var(--accent); }
 .cta__sub { margin: var(--s-6) auto 0; max-width: 52ch; color: var(--muted); }
 .cta__actions { margin-top: var(--s-12); display: flex; justify-content: center; gap: var(--s-4); flex-wrap: wrap; }

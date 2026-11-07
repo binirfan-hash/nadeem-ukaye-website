@@ -527,14 +527,19 @@
       var text = h.textContent.trim();
       h.setAttribute('aria-label', text);
       h.textContent = '';
-      Array.from(text).forEach(function (ch) {
-        if (ch === ' ') { h.appendChild(doc.createTextNode('\u00a0 ')); return; }
-        var s = doc.createElement('span');
-        s.className = 'roll__ch';
-        var t = doc.createElement('span');
-        t.textContent = ch;
-        s.appendChild(t);
-        h.appendChild(s);
+      text.split(/\s+/).forEach(function (wd, i2) {
+        if (i2 > 0) h.appendChild(doc.createTextNode(' '));
+        var wrap = doc.createElement('span');
+        wrap.className = 'roll__word';
+        Array.from(wd).forEach(function (ch) {
+          var s = doc.createElement('span');
+          s.className = 'roll__ch';
+          var t = doc.createElement('span');
+          t.textContent = ch;
+          s.appendChild(t);
+          wrap.appendChild(s);
+        });
+        h.appendChild(wrap);
       });
       var chs = h.querySelectorAll('.roll__ch > span');
       gsap.set(chs, { rotateX: -90, yPercent: 60, opacity: 0 });
