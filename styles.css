@@ -1447,6 +1447,7 @@ input, textarea { caret-color: var(--sage-bright); }
   transition:border-color var(--dur), transform var(--dur) var(--ease-out);
 }
 .lic-card:hover{border-color:var(--line-strong);transform:translateY(-2px)}
+[data-card-timeline] .lic-card{opacity:1}
 .lic-card__top{
   display:flex;align-items:center;justify-content:space-between;
   margin-bottom:0.5rem;

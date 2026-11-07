@@ -725,7 +725,7 @@
     grids.forEach(function (grid) {
       if (grid.dataset.ctlBound) return;
       grid.dataset.ctlBound = '1';
-      var cards = Array.prototype.slice.call(grid.querySelectorAll('.mcard, .toolcard, .svc-row'));
+      var cards = Array.prototype.slice.call(grid.querySelectorAll('.mcard, .toolcard, .svc-row, .lic-card'));
       if (!cards.length) return;
       cards.forEach(function (card, ci) {
         if (card.dataset.ctlCardBound) return;
