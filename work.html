@@ -118,10 +118,26 @@
                 (function(){
                   var v = document.querySelector('.wc-film__vid');
                   if (!v) return;
+                  v.muted = true;
                   var try_ = function(){ var p = v.play(); if (p && p.catch) p.catch(function(){}); };
                   try_();
-                  document.addEventListener('touchstart', try_, { once: true });
-                  document.addEventListener('click', try_, { once: true });
+                  /* sound: browsers allow audible playback only after a gesture — first tap/scroll unmutes */
+                  var sound = function(){
+                    if (!v.muted) return;
+                    v.muted = false;
+                    var p = v.play(); if (p && p.catch) p.catch(function(){ v.muted = true; });
+                    off();
+                  };
+                  var off = function(){
+                    document.removeEventListener('touchstart', sound);
+                    document.removeEventListener('click', sound);
+                    document.removeEventListener('scroll', sound);
+                    document.removeEventListener('keydown', sound);
+                  };
+                  document.addEventListener('touchstart', sound, { passive: true });
+                  document.addEventListener('click', sound);
+                  document.addEventListener('scroll', sound, { passive: true });
+                  document.addEventListener('keydown', sound);
                 })();
                 </script>
               </div>
