@@ -109,26 +109,24 @@
                   <span class="wc-film__path">RECORD FILE · the-record · 1994 → 2026 · 2:00</span>
                   <b>▶ EVERY FRAME BY CODE · NO VIDEO MODEL</b>
                 </div>
-                <video class="wc-film__vid" controls preload="none" playsinline
-                       poster="media/history-poster.jpg">
+                <video class="wc-film__vid" muted loop autoplay playsinline preload="auto"
+                       poster="media/history-poster.jpg" aria-label="The Record — career film 1994 to 2026">
                   <source src="media/history.mp4" type="video/mp4">
                   Your browser does not support embedded video.
                 </video>
+                <script>
+                (function(){
+                  var v = document.querySelector('.wc-film__vid');
+                  if (!v) return;
+                  var try_ = function(){ var p = v.play(); if (p && p.catch) p.catch(function(){}); };
+                  try_();
+                  document.addEventListener('touchstart', try_, { once: true });
+                  document.addEventListener('click', try_, { once: true });
+                })();
+                </script>
               </div>
 
-              <div class="wc-log">
-                <span class="wc-path">— record log</span>
-                <div class="wc-logrows">
-                  <span><b>1994–2000</b> MBBS → Doctor of Medicine, Shivaji University <i>[clinical foundation]</i></span>
-                  <span><b>2000–2009</b> private practice — emergency response, governance, risk decisions <i>[~a decade at the bedside]</i></span>
-                  <span><b>2009–2010</b> the pivot — clinical discipline redirected to industry HSE <i>[life protection at scale]</i></span>
-                  <span><b>2010–2016</b> offshore &amp; marine HSE — Selective Marine, ABAN Drilling, EMAS <i>[HAZID · HIRA · PTW · Iran · Qatar · Dubai · Congo · Angola]</i></span>
-                  <span><b>2016–now</b> regional HSE leader — NOV, Abu Dhabi <i>[15+ facilities · IFR 80% ↓ · LTIF 100% ↓]</i></span>
-                  <span><b>2024–now</b> predictive safety — AI &amp; ML risk intelligence <i>[beyond reactive compliance]</i></span>
-                </div>
-              </div></div>
-          
-</div>
+              
 
               <div class="stack-cards" data-card-timeline>
 

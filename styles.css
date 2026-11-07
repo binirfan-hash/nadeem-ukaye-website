@@ -1396,7 +1396,7 @@ input, textarea { caret-color: var(--sage-bright); }
 .wc-card .chip { position: static; }
 .wc-meta { font-family: var(--font-mono) !important; letter-spacing: 0.03em; }
 .wc-body { font-size: 0.95rem; color: var(--muted); line-height: 1.65; }
-.wc-film { border: 1px solid var(--line); border-radius: 10px; overflow: hidden; margin: 1rem 0 0; background: var(--ink-050); }
+.wc-film { border: 1px solid var(--line); border-radius: 10px; overflow: hidden; margin: 1rem 0; background: var(--ink-050); }
 .wc-film__bar { display: flex; align-items: center; gap: 10px; padding: 0.5rem 0.75rem; border-bottom: 1px solid var(--line); background: var(--ink-050); }
 .wc-film__bar b { margin-left: auto; font-size: 10px; letter-spacing: 0.12em; color: var(--sage); font-weight: 700; white-space: nowrap; }
 .wc-film__path { font-family: var(--mono, ui-monospace, monospace); font-size: 12px; letter-spacing: 0.04em; color: var(--muted, #9c907c); }
