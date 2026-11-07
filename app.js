@@ -235,6 +235,8 @@
       '  d = mod(d + 3.14159, 6.2831) - 3.14159;',
       '  float line = smoothstep(0.05, 0.0, abs(d)) * 0.9;',
       '  float wake = smoothstep(0.45, 0.0, max(d, -10.0) * -1.0);',
+      '  float wake2 = smoothstep(1.05, 0.0, max(d, -10.0) * -1.0);',
+      '  float wake3 = smoothstep(1.9, 0.0, max(d, -10.0) * -1.0);',
       '  float r = length(uv);',
       '  float vignette = smoothstep(1.9, 0.25, r);',
       '  vec2 cell = floor(uv * 56.0);',
@@ -246,6 +248,8 @@
       '  col += uTint * pass * (0.5 + 0.3 * twinkle);',
       '  col += uGold * line * (0.8 + 0.4 * wake);',
       '  col += uGold * wake * 0.06;',
+      '  col += uTint * wake2 * 0.10;',
+      '  col += uTint * wake3 * 0.05;',
       '  col *= vignette;',
       '  gl_FragColor = vec4(col, 1.0);',
       '}'
