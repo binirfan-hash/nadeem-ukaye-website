@@ -1426,3 +1426,5 @@ input, textarea { caret-color: var(--sage-bright); }
   .wc-beat { grid-template-columns: 4.2rem 1fr; }
   .wc-beat > b { grid-column: 2; text-align: left; }
 }
+
+.svc-row--link { color: inherit; text-decoration: none; cursor: pointer; }
