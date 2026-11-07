@@ -746,4 +746,20 @@
     });
   })();
 
+  /* ---------- 11. Hero reel: play only in view, pause out of sight (battery) ---------- */
+  (function () {
+    var reel = doc.querySelector('.hero__reel');
+    if (!reel || !('IntersectionObserver' in window)) return;
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (en) {
+        if (en.isIntersecting) { reel.play().catch(function () {}); }
+        else { reel.pause(); }
+      });
+    }, { threshold: 0.12 });
+    io.observe(reel);
+    doc.addEventListener('visibilitychange', function () {
+      if (doc.hidden) reel.pause(); else if (reel.getBoundingClientRect().bottom > 0) reel.play().catch(function () {});
+    });
+  })();
+
 })();

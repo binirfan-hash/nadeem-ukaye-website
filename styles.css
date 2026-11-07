@@ -1331,3 +1331,26 @@ input, textarea { caret-color: var(--sage-bright); }
   object-fit: cover; aspect-ratio: 0.82; }
 .phero__photo figcaption { font-size: 0.72rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--ink-3); margin-top: 0.55rem; text-align: right; }
 @media (max-width: 860px) { .phero__cols { grid-template-columns: 1fr; } .phero__photo { justify-self: start; max-width: 240px; } }
+
+/* ===== M10: hero showreel film layer (approved) ===== */
+.hero__reel {
+  position: absolute; inset: 0; width: 100%; height: 100%;
+  object-fit: cover; object-position: center;
+  opacity: 0.42; z-index: 1; pointer-events: none;
+}
+.hero__reel-scrim {
+  position: absolute; inset: 0; z-index: 2; pointer-events: none;
+  background:
+    linear-gradient(90deg, rgba(20,17,12,0.88) 0%, rgba(20,17,12,0.55) 46%, rgba(20,17,12,0.18) 100%),
+    linear-gradient(0deg, rgba(20,17,12,0.92) 0%, rgba(20,17,12,0.12) 34%, rgba(20,17,12,0.12) 66%, rgba(20,17,12,0.85) 100%);
+}
+.hero .shader-field { z-index: 0; }
+.hero__in { position: relative; z-index: 3; }
+@media (prefers-reduced-motion: reduce) {
+  .hero__reel { opacity: 0.28; animation: none; }
+}
+@media (max-width: 860px) {
+  .hero__reel { opacity: 0.3; }
+  .hero__reel-scrim { background:
+    linear-gradient(0deg, rgba(20,17,12,0.9) 0%, rgba(20,17,12,0.28) 45%, rgba(20,17,12,0.8) 100%); }
+}
