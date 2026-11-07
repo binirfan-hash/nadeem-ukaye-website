@@ -720,14 +720,14 @@
     grids.forEach(function (grid) {
       if (grid.dataset.ctlBound) return;
       grid.dataset.ctlBound = '1';
-      var cards = Array.prototype.slice.call(grid.querySelectorAll('.mcard, .toolcard, .svc-row, .hn__step'));
+      var cards = Array.prototype.slice.call(grid.querySelectorAll('.mcard, .toolcard, .svc-row'));
       if (!cards.length) return;
       cards.forEach(function (card, ci) {
         if (card.dataset.ctlCardBound) return;
         card.dataset.ctlCardBound = '1';
         card.removeAttribute('data-reveal');
-        var title = card.querySelector('.mcard__title, .toolcard__title, .svc-row__title, .hn__stephead span');
-        var meta = card.querySelector('.mcard__meta, .toolcard__meta, .svc-row__desc, .hn__read');
+        var title = card.querySelector('.mcard__title, .toolcard__title, .svc-row__title');
+        var meta = card.querySelector('.mcard__meta, .toolcard__meta, .svc-row__desc');
         var parts = [card].concat(title ? [title] : [], meta ? [meta] : []);
         parts.forEach(function (el) { gsap.set(el, { opacity: 0, y: 14 }); });
         var t0 = ci * SPEC.stagger;
@@ -762,30 +762,27 @@
     });
   })();
 
-  /* ---------- 12. Motion harness panel: bars draw + counters + log reveal ---------- */
+  /* ---------- 12. Work record console: beat bars + log reveal (real content) ---------- */
   (function () {
-    var frame = doc.querySelector('.hn__frame');
+    var frame = doc.querySelector('.wconsole');
     if (!frame || !hasST || noMotion) return;
-    if (frame.dataset.hnBound) return;
-    frame.dataset.hnBound = '1';
+    if (frame.dataset.wcBound) return;
+    frame.dataset.wcBound = '1';
     ScrollTrigger.create({
       trigger: frame, start: 'top 78%', once: true,
       onEnter: function () {
         frame.classList.add('is-run');
-        var fr = doc.getElementById('hnframes');
-        var gap = doc.getElementById('hngap');
-        if (fr) {
+        var rows = frame.querySelectorAll('.wc-logrows span');
+        gsap.from(rows, { opacity: 0, x: -10, duration: 0.4, stagger: 0.14, delay: 0.6, ease: 'power2.out' });
+        Array.prototype.slice.call(frame.querySelectorAll('.stat__num')).forEach(function (el, i) {
+          var raw = el.textContent.replace(/[^0-9]/g, '');
+          if (!raw) return;
+          var suffix = el.querySelector('span') ? el.querySelector('span').outerHTML : '';
+          var target = parseInt(raw, 10);
           var o = { n: 0 };
-          gsap.to(o, { n: 720, duration: 1.6, ease: 'power2.out', snap: { n: 4 },
-            onUpdate: function () { fr.textContent = '[ ' + o.n + ' / 720 frames ]'; } });
-        }
-        if (gap) {
-          var g = { n: 3 };
-          gsap.to(g, { n: 0, duration: 1.2, ease: 'power2.in', snap: { n: 1 }, delay: 0.5,
-            onUpdate: function () { gap.textContent = '[ gap ok: ' + g.n + '/3 ]'; } });
-        }
-        var rows = frame.querySelectorAll('.hn__logrows span');
-        gsap.from(rows, { opacity: 0, x: -10, duration: 0.4, stagger: 0.12, delay: 0.7, ease: 'power2.out' });
+          gsap.to(o, { n: target, duration: 1.3, ease: 'power2.out', snap: { n: 1 }, delay: 0.25 + i * 0.12,
+            onUpdate: function () { el.innerHTML = Math.round(o.n) + suffix; } });
+        });
       }
     });
   })();
