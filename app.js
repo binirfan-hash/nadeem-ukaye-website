@@ -371,7 +371,8 @@
       gsap.to(obj, {
         n: target, duration: 1.4, ease: 'power2.out', snap: { n: 1 },
         scrollTrigger: { trigger: '.marquee-wrap', start: 'top 92%', once: true },
-        onUpdate: function () { el.textContent = Math.round(obj.n) + suffix; }
+        onUpdate: function () { el.textContent = Math.round(obj.n) + suffix; },
+        onComplete: function () { el.classList.add('is-counted'); }
       });
     });
   })();
@@ -481,6 +482,88 @@
         y: 10, scale: 1.0, ease: 'none',
         scrollTrigger: { trigger: fig, start: 'top bottom', end: 'bottom top', scrub: true }
       });
+    });
+  })();
+
+  /* ---------- 7i. Masked title rise: every section/card headline (text-roll lineage) ---------- */
+  (function () {
+    if (!hasST || noMotion) return;
+    var list = Array.prototype.slice.call(doc.querySelectorAll('.mcard__title, .sec-head__label, article h2, article h3'));
+    list.forEach(function (h) {
+      if (h.dataset.maskBound) return;
+      h.dataset.maskBound = '1';
+      if (h.querySelector('.word')) return;
+      var text = h.textContent.trim();
+      h.setAttribute('aria-label', text);
+      h.textContent = '';
+      text.split(/\s+/).forEach(function (w, i) {
+        if (i > 0) h.appendChild(doc.createTextNode(' '));
+        var wrap = doc.createElement('span');
+        wrap.className = 'mwrap';
+        var inner = doc.createElement('span');
+        inner.className = 'mrise';
+        inner.textContent = w;
+        wrap.appendChild(inner);
+        h.appendChild(wrap);
+      });
+      var risers = h.querySelectorAll('.mrise');
+      gsap.set(risers, { yPercent: 108, display: 'inline-block' });
+      gsap.to(risers, {
+        yPercent: 0, duration: 0.55, ease: 'power4.out', stagger: 0.035,
+        scrollTrigger: { trigger: h, start: 'top 86%', once: true }
+      });
+    });
+  })();
+
+  /* ---------- 7j. CTA headline: 3D letter roll (text-roll adaptation) ---------- */
+  (function () {
+    if (!hasST || noMotion) return;
+    var heads = Array.prototype.slice.call(doc.querySelectorAll('.cta h2, .cta .cta__title'));
+    heads.forEach(function (h) {
+      if (h.dataset.rollBound) return;
+      h.dataset.rollBound = '1';
+      if (h.querySelector('.word')) { h.dataset.rollBound = 'skip'; return; }
+      var text = h.textContent.trim();
+      h.setAttribute('aria-label', text);
+      h.textContent = '';
+      Array.from(text).forEach(function (ch) {
+        if (ch === ' ') { h.appendChild(doc.createTextNode('\u00a0 ')); return; }
+        var s = doc.createElement('span');
+        s.className = 'roll__ch';
+        var t = doc.createElement('span');
+        t.textContent = ch;
+        s.appendChild(t);
+        h.appendChild(s);
+      });
+      var chs = h.querySelectorAll('.roll__ch > span');
+      gsap.set(chs, { rotateX: -90, yPercent: 60, opacity: 0 });
+      gsap.to(chs, {
+        rotateX: 0, yPercent: 0, opacity: 1, duration: 0.6, ease: 'power3.out',
+        stagger: 0.022,
+        scrollTrigger: { trigger: h, start: 'top 84%', once: true }
+      });
+    });
+  })();
+
+  /* ---------- 7k. Pointer tilt + spotlight on cards (tilt-card lineage) ---------- */
+  (function () {
+    if (!finePointer || noMotion) return;
+    var cards = Array.prototype.slice.call(doc.querySelectorAll('.mcard, .toolcard, .svc-row'));
+    cards.forEach(function (card) {
+      if (card.dataset.tiltBound) return;
+      card.dataset.tiltBound = '1';
+      var rx = gsap.quickTo(card, 'rotationX', { duration: 0.5, ease: 'power3.out' });
+      var ry = gsap.quickTo(card, 'rotationY', { duration: 0.5, ease: 'power3.out' });
+      gsap.set(card, { transformPerspective: 700 });
+      card.addEventListener('pointermove', function (e) {
+        var r = card.getBoundingClientRect();
+        var px = (e.clientX - r.left) / r.width, py = (e.clientY - r.top) / r.height;
+        ry(((px - 0.5) * 6.5).toFixed(2));
+        rx(((0.5 - py) * 5.5).toFixed(2));
+        card.style.setProperty('--mx', (px * 100).toFixed(1) + '%');
+        card.style.setProperty('--my', (py * 100).toFixed(1) + '%');
+      });
+      card.addEventListener('pointerleave', function () { rx(0); ry(0); });
     });
   })();
 
