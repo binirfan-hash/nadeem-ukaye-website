@@ -720,14 +720,14 @@
     grids.forEach(function (grid) {
       if (grid.dataset.ctlBound) return;
       grid.dataset.ctlBound = '1';
-      var cards = Array.prototype.slice.call(grid.querySelectorAll('.mcard, .toolcard, .svc-row'));
+      var cards = Array.prototype.slice.call(grid.querySelectorAll('.mcard, .toolcard, .svc-row, .hn__step'));
       if (!cards.length) return;
       cards.forEach(function (card, ci) {
         if (card.dataset.ctlCardBound) return;
         card.dataset.ctlCardBound = '1';
         card.removeAttribute('data-reveal');
-        var title = card.querySelector('.mcard__title, .toolcard__title, .svc-row__title');
-        var meta = card.querySelector('.mcard__meta, .toolcard__meta, .svc-row__desc');
+        var title = card.querySelector('.mcard__title, .toolcard__title, .svc-row__title, .hn__stephead span');
+        var meta = card.querySelector('.mcard__meta, .toolcard__meta, .svc-row__desc, .hn__read');
         var parts = [card].concat(title ? [title] : [], meta ? [meta] : []);
         parts.forEach(function (el) { gsap.set(el, { opacity: 0, y: 14 }); });
         var t0 = ci * SPEC.stagger;
@@ -759,6 +759,34 @@
     io.observe(reel);
     doc.addEventListener('visibilitychange', function () {
       if (doc.hidden) reel.pause(); else if (reel.getBoundingClientRect().bottom > 0) reel.play().catch(function () {});
+    });
+  })();
+
+  /* ---------- 12. Motion harness panel: bars draw + counters + log reveal ---------- */
+  (function () {
+    var frame = doc.querySelector('.hn__frame');
+    if (!frame || !hasST || noMotion) return;
+    if (frame.dataset.hnBound) return;
+    frame.dataset.hnBound = '1';
+    ScrollTrigger.create({
+      trigger: frame, start: 'top 78%', once: true,
+      onEnter: function () {
+        frame.classList.add('is-run');
+        var fr = doc.getElementById('hnframes');
+        var gap = doc.getElementById('hngap');
+        if (fr) {
+          var o = { n: 0 };
+          gsap.to(o, { n: 720, duration: 1.6, ease: 'power2.out', snap: { n: 4 },
+            onUpdate: function () { fr.textContent = '[ ' + o.n + ' / 720 frames ]'; } });
+        }
+        if (gap) {
+          var g = { n: 3 };
+          gsap.to(g, { n: 0, duration: 1.2, ease: 'power2.in', snap: { n: 1 }, delay: 0.5,
+            onUpdate: function () { gap.textContent = '[ gap ok: ' + g.n + '/3 ]'; } });
+        }
+        var rows = frame.querySelectorAll('.hn__logrows span');
+        gsap.from(rows, { opacity: 0, x: -10, duration: 0.4, stagger: 0.12, delay: 0.7, ease: 'power2.out' });
+      }
     });
   })();
 
