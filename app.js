@@ -792,6 +792,7 @@
       grid.dataset.ctlBound = '1';
       var cards = Array.prototype.slice.call(grid.querySelectorAll('.mcard, .toolcard, .svc-row, .lic-card'));
       if (!cards.length) return;
+      var centre = (cards.length - 1) / 2; /* centre-out start order (Anime.js stagger 'from: center' pattern) */
       cards.forEach(function (card, ci) {
         if (card.dataset.ctlCardBound) return;
         card.dataset.ctlCardBound = '1';
@@ -800,7 +801,7 @@
         var meta = card.querySelector('.mcard__meta, .toolcard__meta, .svc-row__desc');
         var parts = [card].concat(title ? [title] : [], meta ? [meta] : []);
         parts.forEach(function (el) { gsap.set(el, { opacity: 0, y: 14 }); });
-        var t0 = ci * SPEC.stagger;
+        var t0 = Math.abs(ci - centre) * SPEC.stagger;
         var tl = gsap.timeline({
           paused: harness,
           scrollTrigger: harness ? null : { trigger: card, start: 'top 88%', once: true }
