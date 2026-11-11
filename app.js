@@ -49,6 +49,46 @@
   var hasST = !!window.ScrollTrigger;
   if (hasST) gsap.registerPlugin(window.ScrollTrigger);
 
+  /* ---------- 5-spring. Physics rig: one damped-spring registry driven by the GSAP
+     ticker. Same idea as Anime.js createSpring, implemented in ~40 lines, 0 new KB. ---------- */
+  var sprRig = (function () {
+    var map = new Map();
+    var K = 170, C = 14; /* stiffness / damping: one gentle overshoot, ~0.35s settle */
+    function rig(el) {
+      var s = map.get(el);
+      if (!s) {
+        s = { x: 0, y: 0, vx: 0, vy: 0, sc: 1, vsc: 0, tx: 0, ty: 0, tsc: 1, el: el };
+        map.set(el, s);
+      }
+      return s;
+    }
+    return {
+      target: function (el, tx, ty, tsc) {
+        if (!el) return;
+        var s = rig(el);
+        if (tx !== null) s.tx = tx;
+        if (ty !== null) s.ty = ty;
+        if (tsc !== null) s.tsc = tsc;
+      },
+      release: function (el) {
+        if (el) { var s = rig(el); s.tx = 0; s.ty = 0; }
+      },
+      start: function () {
+        if (reduceMotion) return;
+        gsap.ticker.add(function () {
+          var dt = Math.min(0.032, gsap.ticker.deltaRatio(60) / 60 || 0.016);
+          map.forEach(function (s) {
+            s.vx += (K * (s.tx - s.x) - C * s.vx) * dt; s.x += s.vx * dt;
+            s.vy += (K * (s.ty - s.y) - C * s.vy) * dt; s.y += s.vy * dt;
+            s.vsc += (K * (s.tsc - s.sc) - C * s.vsc) * dt; s.sc += s.vsc * dt;
+            s.el.style.translate = s.x.toFixed(2) + 'px ' + s.y.toFixed(2) + 'px';
+            s.el.style.scale = s.sc.toFixed(4);
+          });
+        });
+      }
+    };
+  })();
+
   /* ---------- 1. Lenis smooth scroll ---------- */
   if (window.Lenis) {
     var lenis = new window.Lenis({
@@ -190,7 +230,7 @@
     }, { passive: true });
 
     doc.addEventListener('pointerleave', function () {
-      if (lastMagnet) { lastMagnet.style.translate = ''; lastMagnet = null; }
+      if (lastMagnet) { sprRig.release(lastMagnet); lastMagnet = null; }
     });
 
     (function loop() {
@@ -201,7 +241,7 @@
       ring.style.transform = 'translate3d(' + ringPos.x + 'px,' + ringPos.y + 'px,0) translate(-50%,-50%)';
       ring.dataset.over = String(overInteractive);
       if (magnetEl !== lastMagnet) {
-        if (lastMagnet) lastMagnet.style.translate = '';
+        if (lastMagnet) sprRig.release(lastMagnet);
         lastMagnet = magnetEl;
       }
       if (magnetEl) {
@@ -210,9 +250,18 @@
         var dy = mouse.y - (b.top + b.height / 2);
         var kx = Math.max(-10, Math.min(10, dx * 0.25));
         var ky = Math.max(-10, Math.min(10, dy * 0.3));
-        magnetEl.style.translate = kx + 'px ' + ky + 'px';
+        sprRig.target(magnetEl, kx, ky, null);
       }
     })();
+
+    /* press springs: press in, release settles with a physics overshoot */
+    Array.prototype.forEach.call(doc.querySelectorAll(MAGNETIC), function (el) {
+      el.addEventListener('pointerdown', function () { sprRig.target(el, null, null, 0.96); });
+      ['pointerup', 'pointercancel', 'pointerleave'].forEach(function (ev) {
+        el.addEventListener(ev, function () { sprRig.target(el, null, null, 1); });
+      });
+    });
+    sprRig.start();
   })();
 
   /* ---------- 6. Progress bar + header driven by GSAP ticker ---------- */
