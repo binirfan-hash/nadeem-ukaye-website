@@ -63,10 +63,26 @@
     gsap.ticker.lagSmoothing(0);
   }
 
-  /* ---------- 2. Hero title: word wrap + char split (masked) ---------- */
+  /* ---------- 2. Title split: SplitText (a11y, responsive) with legacy fallback ---------- */
   (function () {
     var titles = Array.prototype.slice.call(doc.querySelectorAll('#heroTitle, [data-split]'));
     if (!titles.length) return;
+    if (window.SplitText && window.gsap) {
+      try {
+        gsap.registerPlugin(window.SplitText);
+        titles.forEach(function (title) {
+          if (title.dataset.splitBound) return;
+          title.dataset.splitBound = '1';
+          window.SplitText.create(title, {
+            type: 'words,chars',
+            wordsClass: 'word',
+            charsClass: 'ch',
+            aria: 'auto'
+          });
+        });
+        return;
+      } catch (e) { /* legacy path below */ }
+    }
     titles.forEach(function (title) {
       var text = title.textContent.trim();
       title.setAttribute('aria-label', title.getAttribute('aria-label') || text);
