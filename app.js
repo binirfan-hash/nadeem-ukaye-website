@@ -662,8 +662,8 @@
 
     // Public feedback feed (GitHub gist — free, CORS-enabled public read)
     var WALL_URL = 'https://gist.githubusercontent.com/binirfan-hash/c8a73b02b2372b9ea7631ebebe46857a/raw/feedback.json';
-    // Submissions go to Nadeem's email via FormSubmit (free, no backend needed)
-    var SUBMIT_URL = 'https://formsubmit.co/ajax/drukaye@gmail.com';
+    // Submissions land in Nadeem's inbox via Formspree (email hidden in the form config)
+    var SUBMIT_URL = 'https://formspree.io/f/mgaeegbz';
 
     function esc(s) {
       return String(s).replace(/[&<>"']/g, function (c) {
@@ -734,8 +734,6 @@
         headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
         body: JSON.stringify({
           _subject: 'Tool feedback: ' + current + '/5 stars',
-          _template: 'box',
-          _cc: 'nadeembinirfan@gmail.com',
           Rating: current + ' / 5',
           Name: entry.name || 'Anonymous',
           Role: entry.role || '-',
@@ -750,12 +748,8 @@
         current = 0; ratingInput.value = ''; paint(0);
         renderWall(window.__fbCache);
       }).catch(function () {
-        // Fallback: open a pre-filled email so nothing is lost
-        var body = 'Rating: ' + current + '/5\nName: ' + (entry.name || 'Anonymous')
-          + '\nRole: ' + (entry.role || '-') + '\n\n' + entry.message;
-        window.location.href = 'mailto:drukaye@gmail.com?subject='
-          + encodeURIComponent('Tool feedback: ' + current + '/5') + '&body=' + encodeURIComponent(body);
-        say('Opening your email app — send to finish.', false);
+        // No email fallback anywhere: graceful retry message instead
+        say('Could not send right now. Try again in a minute.', true);
         btn.disabled = false;
       });
     });

@@ -192,7 +192,7 @@
         var email = (em.value || '').trim();
         if (!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email)) { st.textContent = 'That address does not look right. Check and try again.'; st.className = 'subform__state is-error'; return; }
         btn.disabled = true; st.textContent = 'Adding you to the journal list...'; st.className = 'subform__state';
-        fetch('https://formsubmit.co/ajax/drukaye@gmail.com', {
+        fetch('https://formspree.io/f/mgaeegbz', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
           body: JSON.stringify({ _subject: 'JOURNAL SUBSCRIBER: ' + email, email: email, source: 'doseofhse.com/subscribe', _captcha: 'false' })
