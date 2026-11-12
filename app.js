@@ -235,10 +235,10 @@
 
     (function loop() {
       requestAnimationFrame(loop);
-      dot.style.transform = 'translate3d(' + mouse.x + 'px,' + mouse.y + 'px,0) translate(-50%,-50%)';
+      dot.style.transform = 'translate3d(' + mouse.x + 'px,' + mouse.y + 'px,0)';
       ringPos.x += (mouse.x - ringPos.x) * 0.16;
       ringPos.y += (mouse.y - ringPos.y) * 0.16;
-      ring.style.transform = 'translate3d(' + ringPos.x + 'px,' + ringPos.y + 'px,0) translate(-50%,-50%)';
+      ring.style.transform = 'translate3d(' + ringPos.x + 'px,' + ringPos.y + 'px,0)';
       ring.dataset.over = String(overInteractive);
       if (magnetEl !== lastMagnet) {
         if (lastMagnet) sprRig.release(lastMagnet);
