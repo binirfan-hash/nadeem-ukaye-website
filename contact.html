@@ -73,22 +73,14 @@
           <!-- Left: details -->
           <div class="contact-details" data-reveal-group>
             <div class="mcard" data-reveal>
-              <h3 class="mcard__title">Direct lines</h3>
+              <h3 class="mcard__title">Social media connection</h3>
               <div class="contact-row">
-                <span class="contact-key">Email</span>
-                <a href="mailto:drukaye@gmail.com">drukaye@gmail.com</a>
-              </div>
-              <div class="contact-row">
-                <span class="contact-key">Phone</span>
-                <span>+971 56 795 2527</span>
+                <span class="contact-key">LinkedIn</span>
+                <a href="https://www.linkedin.com/in/doseofhse/" target="_blank" rel="noopener">linkedin.com/in/doseofhse</a>
               </div>
               <div class="contact-row">
                 <span class="contact-key">Base</span>
                 <span>Abu Dhabi, United Arab Emirates</span>
-              </div>
-              <div class="contact-row">
-                <span class="contact-key">LinkedIn</span>
-                <a href="https://www.linkedin.com/in/doseofhse/" target="_blank" rel="noopener">linkedin.com/in/doseofhse</a>
               </div>
             </div>
             <div class="mcard" data-reveal>
@@ -154,7 +146,7 @@
         <p class="cta__sub" data-reveal>Fill in the form above or reach out directly. I respond within 24 hours.</p>
         <div class="cta__actions" data-reveal>
           <a href="https://cal.com/nadeem-ukaye-z2sjo1" class="btn btn--solid" data-magnet>Book a Consultation</a>
-          <a href="mailto:drukaye@gmail.com?subject=Consultation%20Request" class="arrow-link">drukaye@gmail.com <span class="arr">→</span></a>
+          <a href="https://www.linkedin.com/in/doseofhse/" target="_blank" rel="noopener" class="arrow-link">Connect on LinkedIn <span class="arr">→</span></a>
         </div>
       </div>
     </section>
@@ -198,7 +190,7 @@
           body: JSON.stringify({ _subject: 'JOURNAL SUBSCRIBER: ' + email, email: email, source: 'doseofhse.com/subscribe', _captcha: 'false' })
         }).then(function (r) { if (!r.ok) throw new Error('relay'); return r.json(); })
           .then(function () { st.textContent = 'You are on the list. The next article lands in your inbox.'; st.className = 'subform__state is-ok'; form.reset(); })
-          .catch(function () { btn.disabled = false; st.innerHTML = 'Could not add you right now. Email <a href="mailto:drukaye@gmail.com?subject=Subscribe%20me%20to%20the%20journal">drukaye@gmail.com</a> and you are in.'; st.className = 'subform__state is-error'; });
+          .catch(function () { btn.disabled = false; st.innerHTML = 'Could not add you right now. Try again in a minute.'; st.className = 'subform__state is-error'; });
       });
     })();
     </script>
@@ -222,7 +214,6 @@
       <div class="pillars" aria-hidden="true"><div class="pillars__track"><span>Predictive safety</span><span>HSE governance</span><span>Applied AI</span><span>Risk intelligence</span><span>Predictive safety</span><span>HSE governance</span><span>Applied AI</span><span>Risk intelligence</span><span>Predictive safety</span><span>HSE governance</span><span>Applied AI</span><span>Risk intelligence</span></div></div>        <span>© 2026 Dr. Nadeem Irfan Ukaye · Abu Dhabi, UAE</span>
       <div class="pagefoot__links">
         <a href="https://www.linkedin.com/in/doseofhse/" target="_blank" rel="noopener">LinkedIn</a>
-        <a href="mailto:drukaye@gmail.com">Email</a>
       </div>
     </div>
   </footer>
